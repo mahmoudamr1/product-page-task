@@ -1,0 +1,203 @@
+/*==================     header        =========================================*/
+
+.navbar-toggler {
+  padding: 2px 5px;
+  line-height: normal;
+  color: inherit;
+  background-color: initial;
+  border: none;
+  border-radius: 0;
+  transition: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+}
+
+.navbar-toggler-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler {
+  background-color: transparent;
+}
+
+.navbar-toggler:focus svg path {
+  fill: black;
+  color: black;
+  background: black;
+}
+
+.header1 {
+  border: 1px solid #e7e7e7;
+  background: #fff;
+  direction: rtl;
+}
+
+.header-link,
+.blog-txt {
+  color: var(--Primary-Text, #111);
+  text-align: right;
+  font-family: Geist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+.header-link:hover,
+.blog-txt:hover {
+  color: #09d64e;
+}
+.start-now-btn:hover {
+  color: #000;
+  background: #00c05a7e;
+  border: 1px solid #00c05a7e;
+}
+.main-logo {
+  height: 32px;
+}
+
+.log-in-btn,
+.mobile-log-in-btn {
+  width: 180px;
+  border-radius: 16px;
+  border: 1px solid var(--Primary-Text, #111);
+  transition: 0.7s;
+  border-radius: var(--Corner-Small, 8px);
+  background: rgba(219, 219, 219, 0.3);
+}
+
+.log-in-btn:hover,
+.mobile-log-in-btn:hover {
+  border: 1px solid var(--Primary-Text, #09d64e);
+  color: var(--Primary-Text, #09d64e);
+}
+.log-in-btn:hover svg path {
+  fill: #09d64e;
+  transition: 0.7s;
+}
+
+.start-now-btn {
+  position: relative;
+  display: flex;
+  width: 180px;
+  height: 56px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  transition: 0.7s;
+  border-radius: var(--Corner-Small, 8px);
+  background: #09d64e;
+  color: #fff;
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.container-start-now-btn:hover,
+.container-start-now-btn:hover .start-now-btn {
+  transform: translate(0);
+}
+
+.mobile-navlink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--Secondary-Text, #252525);
+  font-family: Geist;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 10px;
+}
+
+.close-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+.main-header .dropdown-icon img {
+  height: 20px;
+}
+.blog-elm-container {
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 3px rgba(1, 186, 87, 0.25);
+  padding: 10px;
+  left: 50%;
+  width: max-content;
+  transform: translateX(-50%);
+}
+@media (max-width: 1024px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .close-navbar img {
+    width: 40px;
+    height: 40px;
+    float: left;
+  }
+
+  #navbarSupportedContent > ul {
+    padding: 0;
+    margin: 0 !important;
+  }
+
+  .head-btn {
+    width: 83%;
+  }
+
+  #navbarSupportedContent > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+  }
+
+  .log-in-btn {
+    display: none;
+  }
+
+  .mobile-log-in-btn,
+  .mobile-container-start-now-btn,
+  .mobile-container-start-now-btn a {
+    display: flex;
+    width: 180px;
+  }
+
+  .start-now-btn,
+  .container-start-now-btn {
+    font-size: 14px;
+    height: 48px;
+    width: max-content;
+  }
+
+  .header1 {
+    border-radius: 16px;
+  }
+  .main-logo {
+    height: 26px;
+  }
+}
+
+/*==================     end header        =========================================*/

@@ -1,27 +1,17 @@
-import React from "react";
-
-type PropType = {
+type ThumbProps = {
+  imgSrc: string;
+  onClick: () => void;
   selected: boolean;
   index: number;
-  onClick: () => void;
 };
 
-export const Thumb: React.FC<PropType> = (props) => {
-  const { selected, index, onClick } = props;
-
-  return (
-    <div
-      className={"embla-thumbs__slide".concat(
-        selected ? " embla-thumbs__slide--selected" : ""
-      )}
-    >
-      <button
-        onClick={onClick}
-        type="button"
-        className="embla-thumbs__slide__number"
-      >
-        {index + 1}
-      </button>
-    </div>
-  );
-};
+export const Thumb = ({ imgSrc, onClick, selected }: ThumbProps) => (
+  <button
+    onClick={onClick}
+    className={`w-16 h-16 rounded overflow-hidden border-2 ${
+      selected ? "border-black" : "border-transparent"
+    }`}
+  >
+    <img src={imgSrc} alt="thumbnail" className="w-full h-full object-cover" />
+  </button>
+);

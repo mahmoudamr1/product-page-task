@@ -1,0 +1,22 @@
+.container-first-discount .small-txt {
+  color: #fff;
+  font-family: "Geist";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+.hour-txt {
+  border-radius: 23px;
+  background: #383838;
+  display: flex;
+  padding: 3px 7px 3px 8px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: "geist Mono";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+}
