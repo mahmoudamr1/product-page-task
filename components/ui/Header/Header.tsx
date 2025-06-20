@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // لتأثيرات الـ collapse
 import "./Header.css";
+import Image from "next/image";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -45,7 +46,7 @@ const Header: React.FC = () => {
     <div className="main-header flex items-center justify-center">
       <div className="flex items-center justify-center w-full max-w-screen-xl header1">
         <nav className="w-full sm:w-full">
-          <div className="mx-auto max-w-7xl p-2 sm:p-6 lg:p-6">
+          <div className="mx-auto max-w-7xl p-2 sm:p-6 lg:p-6 lg:px-0">
             <div className="relative flex h-16 items-center justify-between gap-2">
               <div className="flex flex-1 items-center justify-between sm:items-stretch sm:justify-between w-full order-2">
                 <div className="flex space-x-2">
@@ -71,7 +72,7 @@ const Header: React.FC = () => {
                     >
                       <path
                         fillRule="evenodd"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                         d="M7.24597 7C7.24597 9.62 9.37597 11.75 11.996 11.75C14.616 11.75 16.746 9.62 16.746 7C16.746 4.38 14.616 2.25 11.996 2.25C9.37597 2.25 7.24597 4.38 7.24597 7ZM8.74597 7C8.74597 5.21 10.206 3.75 11.996 3.75C13.786 3.75 15.246 5.21 15.246 7C15.246 8.79 13.786 10.25 11.996 10.25C10.206 10.25 8.74597 8.79 8.74597 7ZM4.24597 19C4.24597 20.52 5.47597 21.75 6.99597 21.75H16.996C18.516 21.75 19.746 20.52 19.746 19C19.746 15.83 17.166 13.25 13.996 13.25H9.99597C6.82597 13.25 4.24597 15.83 4.24597 19ZM5.74597 19C5.74861 17.8736 6.19723 16.7942 6.99369 15.9977C7.79014 15.2013 8.86961 14.7526 9.99597 14.75H13.996C15.1223 14.7526 16.2018 15.2013 16.9983 15.9977C17.7947 16.7942 18.2433 17.8736 18.246 19C18.246 19.69 17.686 20.25 16.996 20.25H6.99597C6.30597 20.25 5.74597 19.69 5.74597 19Z"
                         fill="black"
                       />
@@ -106,9 +107,9 @@ const Header: React.FC = () => {
                               <path
                                 d="M15 8C15 8 11.3176 13 10 13C8.68233 13 5 8 5 8"
                                 stroke="#141414"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                               />
                             </svg>
                           </div>
@@ -199,10 +200,11 @@ const Header: React.FC = () => {
                   </div>
                   <div className="flex items-center">
                     <a href="#">
-                      <img
-                        src="Logo.png"
+                      <Image
+                        src="/Logo.png"
                         className=" w-auto main-logo px-2"
                         alt="Website Logo"
+                        fill
                       />
                     </a>
                   </div>
@@ -261,7 +263,7 @@ const Header: React.FC = () => {
           >
             <div className="flex flex-col items-center content-center gap-3 px-2 pt-2 pb-3 navbar-collapse">
               <div className="close-navbar flex px-2 py-2" onClick={toggleMenu}>
-                <img src="close-nav.png" alt="" />
+                <Image src="/close-nav.png" alt="" fill />
               </div>
               <a href="#first-section1" className="mobile-navlink">
                 الرئيسية
@@ -302,9 +304,9 @@ const Header: React.FC = () => {
                         <path
                           d="M15 8C15 8 11.3176 13 10 13C8.68233 13 5 8 5 8"
                           stroke="#141414"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </div>
@@ -388,7 +390,7 @@ const Header: React.FC = () => {
                 >
                   <path
                     fillRule="evenodd"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                     d="M7.24597 7C7.24597 9.62 9.37597 11.75 11.996 11.75C14.616 11.75 16.746 9.62 16.746 7C16.746 4.38 14.616 2.25 11.996 2.25C9.37597 2.25 7.24597 4.38 7.24597 7ZM8.74597 7C8.74597 5.21 10.206 3.75 11.996 3.75C13.786 3.75 15.246 5.21 15.246 7C15.246 8.79 13.786 10.25 11.996 10.25C10.206 10.25 8.74597 8.79 8.74597 7ZM4.24597 19C4.24597 20.52 5.47597 21.75 6.99597 21.75H16.996C18.516 21.75 19.746 20.52 19.746 19C19.746 15.83 17.166 13.25 13.996 13.25H9.99597C6.82597 13.25 4.24597 15.83 4.24597 19ZM5.74597 19C5.74861 17.8736 6.19723 16.7942 6.99369 15.9977C7.79014 15.2013 8.86961 14.7526 9.99597 14.75H13.996C15.1223 14.7526 16.2018 15.2013 16.9983 15.9977C17.7947 16.7942 18.2433 17.8736 18.246 19C18.246 19.69 17.686 20.25 16.996 20.25H6.99597C6.30597 20.25 5.74597 19.69 5.74597 19Z"
                     fill="black"
                   />

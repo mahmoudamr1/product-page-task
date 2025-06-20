@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { Thumb } from "./EmblaCarouselThumbsButton";
+import Image from "next/image";
 
 type PropType = {
   slides: string[];
@@ -50,10 +51,11 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
               className="embla__slide min-w-0 flex-[0_0_100%] px-1"
               key={index}
             >
-              <img
+              <Image
+                fill
                 src={src}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-cover rounded-lg !relative"
               />
             </div>
           ))}

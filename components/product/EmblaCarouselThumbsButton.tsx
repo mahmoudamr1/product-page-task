@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type ThumbProps = {
   imgSrc: string;
   onClick: () => void;
@@ -12,6 +14,11 @@ export const Thumb = ({ imgSrc, onClick, selected }: ThumbProps) => (
       selected ? "border-black" : "border-transparent"
     }`}
   >
-    <img src={imgSrc} alt="thumbnail" className="w-full h-full object-cover" />
+    <Image
+      src={imgSrc}
+      alt="thumbnail"
+      className="w-full h-full object-cover !relative"
+      fill
+    />
   </button>
 );

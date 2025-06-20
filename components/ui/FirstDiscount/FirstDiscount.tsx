@@ -1,3 +1,4 @@
+// components/ui/FirstDiscount/FirstDiscount.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -22,9 +23,19 @@ const FirstDiscount: React.FC = () => {
     return { hours, minutes, seconds };
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  // نُهيّئ الساعة إلى 00:00:00 كي يكون نفس المحتوى على الخادم والعميل
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // عند أول تحميل في المتصفح نحسب القيمة الحقيقية
+    setMounted(true);
+    setTimeLeft(calculateTimeLeft());
+
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
@@ -36,9 +47,14 @@ const FirstDiscount: React.FC = () => {
   return (
     <div className="container-first-discount flex gap-3 text-center items-center justify-center py-3 px-3">
       <div className="small-txt">Discount 10% for all products!</div>
-      <span className="hour-txt">
-        {pad(timeLeft.hours)}:{pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
-      </span>{" "}
+      {/* قبل التحميل نُظهر "--:--:--" ثم نستبدله بعد mount */}
+      <span className="hour-txt" suppressHydrationWarning>
+        {mounted
+          ? `${pad(timeLeft.hours)}:${pad(timeLeft.minutes)}:${pad(
+              timeLeft.seconds
+            )}`
+          : "--:--:--"}
+      </span>
     </div>
   );
 };
