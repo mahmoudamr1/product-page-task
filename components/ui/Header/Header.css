@@ -111,9 +111,6 @@
 }
 
 .mobile-navlink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--Secondary-Text, #252525);
   font-family: Geist;
   font-size: 16px;
@@ -198,7 +195,7 @@
     border-radius: 16px;
   }
   .main-logo {
-    height: 26px;
+    height: 26px !important;
   }
 }
 

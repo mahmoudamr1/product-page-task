@@ -3,8 +3,9 @@
 import React, { useEffect, useMemo } from "react";
 import { useParams } from "next/navigation";
 import { useProductStore } from "@/store/productStore";
-import EmblaCarousel from "@/components/product/EmblaCarousel";
+import EmblaCarousel from "@/components/product/EmblaCarousel/EmblaCarousel";
 import { Product } from "@/types/product";
+import RightProduct from "@/components/product/RightProduct/RightProduct";
 
 interface ProductShellProps {
   initialProduct?: Product;
@@ -42,23 +43,17 @@ const ProductShell: React.FC<ProductShellProps> = ({ initialProduct }) => {
   );
 
   return (
-    <div className="grid lg:grid-cols-2 gap-6">
-      <EmblaCarousel slides={slides} />
-
-      <div className="space-y-4">
-        <h1 className="text-2xl font-bold">{activeProduct.name}</h1>
-        <div
-          className="prose"
-          dangerouslySetInnerHTML={{ __html: activeProduct.description }}
-        />
-        <p className="text-xl font-semibold">
-          السعر: {activeProduct.sale_price || activeProduct.price} ج.م
-        </p>
-        <button className="px-6 py-2 bg-green-600 text-white rounded">
-          {activeProduct.buy_now_text}
-        </button>
+    <section
+      id="product-main"
+      className=" overflow-hidden py-6 px-4 lg:px-7 lg:py-14 max-w-full"
+    >
+      <div className="container flex flex-col gap-6 xl:gap-10 max-w-full md:max-w-screen-xl mx-auto ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-full">
+          <EmblaCarousel slides={slides} />
+          <RightProduct />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

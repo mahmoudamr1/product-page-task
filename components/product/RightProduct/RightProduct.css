@@ -1,0 +1,72 @@
+#product-main .dashed-line {
+  border: 1px dashed #ccc;
+  width: 90%;
+}
+
+.color-slected {
+  padding: 6px;
+  height: 45px;
+  width: 80px;
+}
+.color-slected .color-variant {
+  height: 100%;
+  width: 100%;
+}
+.container-color {
+  border-radius: 8px;
+}
+.color-variant {
+  height: 45px;
+  width: 80px;
+  border-radius: 8px;
+}
+.Size-variant {
+  padding: 5px;
+  height: 40px;
+  width: 75px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.Size-slected {
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #ebebeb;
+}
+.add-to-card {
+  border-radius: 8px;
+  background: #141414;
+  padding: 15px 20px;
+  color: #fff;
+  font-family: "Geist";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+.Checkout-Now {
+  border-radius: 8px;
+  border: 1px solid #b8b8b8;
+  background: #fff;
+  padding: 15px 20px;
+  color: #333;
+  font-family: "Geist";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+@media (max-width: 992px) {
+  .color-slected {
+    width: 70px;
+  }
+
+  .container-color {
+    border-radius: 8px;
+  }
+  .color-variant {
+    width: 70px;
+  }
+}

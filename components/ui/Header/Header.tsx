@@ -46,158 +46,143 @@ const Header: React.FC = () => {
     <div className="main-header flex items-center justify-center">
       <div className="flex items-center justify-center w-full max-w-screen-xl header1">
         <nav className="w-full sm:w-full">
-          <div className="mx-auto max-w-7xl p-2 sm:p-6 lg:p-6 lg:px-0">
+          <div className="mx-auto max-w-7xl p-2 sm:p-6 lg:p-4 lg:px-0">
             <div className="relative flex h-16 items-center justify-between gap-2">
               <div className="flex flex-1 items-center justify-between sm:items-stretch sm:justify-between w-full order-2">
-                <div className="flex space-x-2">
-                  <div className="container-start-now-btn">
-                    <a
-                      href="https://www.easy-orders.net/register/"
-                      className="start-now-btn header-link"
-                    >
-                      اشترك مجاناً الآن
-                    </a>
-                  </div>
-
-                  <a
-                    href="https://app.easy-orders.net/#/login"
-                    className="log-in-btn px-3 py-2 header-link hidden md:flex"
-                  >
+                <div className="flex gap-5">
+                  <div className="Shopping-cart-logo flex items-center justify-center ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
                       fill="none"
                     >
                       <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M7.24597 7C7.24597 9.62 9.37597 11.75 11.996 11.75C14.616 11.75 16.746 9.62 16.746 7C16.746 4.38 14.616 2.25 11.996 2.25C9.37597 2.25 7.24597 4.38 7.24597 7ZM8.74597 7C8.74597 5.21 10.206 3.75 11.996 3.75C13.786 3.75 15.246 5.21 15.246 7C15.246 8.79 13.786 10.25 11.996 10.25C10.206 10.25 8.74597 8.79 8.74597 7ZM4.24597 19C4.24597 20.52 5.47597 21.75 6.99597 21.75H16.996C18.516 21.75 19.746 20.52 19.746 19C19.746 15.83 17.166 13.25 13.996 13.25H9.99597C6.82597 13.25 4.24597 15.83 4.24597 19ZM5.74597 19C5.74861 17.8736 6.19723 16.7942 6.99369 15.9977C7.79014 15.2013 8.86961 14.7526 9.99597 14.75H13.996C15.1223 14.7526 16.2018 15.2013 16.9983 15.9977C17.7947 16.7942 18.2433 17.8736 18.246 19C18.246 19.69 17.686 20.25 16.996 20.25H6.99597C6.30597 20.25 5.74597 19.69 5.74597 19Z"
-                        fill="black"
+                        d="M9.58317 6.66669H16.8298C17.3505 6.66669 17.6108 6.66669 17.8014 6.75072C18.6445 7.12244 18.2676 8.05898 18.1258 8.73202C18.1003 8.85294 18.0173 8.95585 17.9012 9.01102C17.4193 9.23969 17.0817 9.67344 16.9931 10.1779L16.4993 12.9899C16.282 14.2271 16.2078 15.9953 15.1235 16.8669C14.328 17.5 13.1818 17.5 10.8894 17.5H9.11026C6.81786 17.5 5.67167 17.5 4.87617 16.8669C3.79194 15.9952 3.71766 14.2271 3.50039 12.9899L3.00656 10.1779C2.91798 9.67344 2.58045 9.23969 2.09851 9.01102C1.98231 8.95585 1.89944 8.85294 1.87396 8.73202C1.73212 8.05898 1.35517 7.12244 2.19827 6.75072C2.38887 6.66669 2.64919 6.66669 3.16981 6.66669H6.24984"
+                        stroke="#141414"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M11.6668 10H8.3335"
+                        stroke="#141414"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M5.4165 9.16667L8.33317 2.5M12.4998 2.5L14.5832 6.66667"
+                        stroke="#141414"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
                       />
                     </svg>
-                    <span> تسجيل الدخول</span>
-                  </a>
+                  </div>
+                  <div className="wish-heart-logo flex items-center justify-center ">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M16.2187 3.32846C13.9839 1.95769 12.0335 2.51009 10.8618 3.39001C10.3813 3.7508 10.1412 3.93119 9.99984 3.93119C9.8585 3.93119 9.61834 3.7508 9.13784 3.39001C7.96619 2.51009 6.01574 1.95769 3.78104 3.32846C0.848228 5.12745 0.184604 11.0624 6.94944 16.0695C8.23794 17.0232 8.88217 17.5 9.99984 17.5C11.1175 17.5 11.7618 17.0232 13.0503 16.0695C19.8151 11.0624 19.1514 5.12745 16.2187 3.32846Z"
+                        stroke="#141414"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
+                  <div className=" items-center justify-center gap-2 hidden md:flex">
+                    <span>Sign in</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M5.48131 12.9013C4.30234 13.6033 1.21114 15.0367 3.09389 16.8305C4.01359 17.7066 5.03791 18.3333 6.32573 18.3333H13.6743C14.9621 18.3333 15.9864 17.7066 16.9061 16.8305C18.7888 15.0367 15.6977 13.6033 14.5187 12.9013C11.754 11.2551 8.24599 11.2551 5.48131 12.9013Z"
+                        stroke="#141414"
+                        strokeWidth="1.25"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M13.75 5.41669C13.75 7.48775 12.0711 9.16669 10 9.16669C7.92893 9.16669 6.25 7.48775 6.25 5.41669C6.25 3.34562 7.92893 1.66669 10 1.66669C12.0711 1.66669 13.75 3.34562 13.75 5.41669Z"
+                        stroke="#141414"
+                        strokeWidth="1.25"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    className="mobile-navlink items-center justify-between px-3 py-2 cursor-pointer h-full hidden md:flex !p-0"
+                    onClick={toggleBlogMenu}
+                  >
+                    <div className="flex items-center gap-2 justify-center">
+                      <div
+                        className="dropdown-icon flex align-middle justify-center h-max"
+                        style={{
+                          transform: isBlogOpen
+                            ? "rotate(180deg)"
+                            : "rotate(0deg)",
+                          transition: "transform 0.3s ease",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M15 8C15 8 11.3176 13 10 13C8.68233 13 5 8 5 8"
+                            stroke="#141414"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <span className="blog-txt">Categories</span>
+                    </div>
+                  </div>
+                  <div className="search-container flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <g clipPath="url(#clip0_57_1326)">
+                        <path
+                          d="M14.5835 14.5833L18.3335 18.3333"
+                          stroke="#141414"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M16.6665 9.16669C16.6665 5.02455 13.3087 1.66669 9.1665 1.66669C5.02437 1.66669 1.6665 5.02455 1.6665 9.16669C1.6665 13.3089 5.02437 16.6667 9.1665 16.6667C13.3087 16.6667 16.6665 13.3089 16.6665 9.16669Z"
+                          stroke="#141414"
+                          strokeWidth="1.5"
+                          strokeLinejoin="round"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_57_1326">
+                          <rect width="20" height="20" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
                 </div>
                 <div className="flex gap-5">
-                  <div className="hidden sm:flex space-x-4 align-middle justify-center ">
-                    <div className="relative">
-                      <div
-                        className="mobile-navlink flex items-center justify-between px-3 py-2 cursor-pointer h-full"
-                        onClick={toggleBlogMenu}
-                      >
-                        <div className="flex items-center gap-2 justify-center">
-                          <div
-                            className="dropdown-icon flex align-middle justify-center h-max"
-                            style={{
-                              transform: isBlogOpen
-                                ? "rotate(180deg)"
-                                : "rotate(0deg)",
-                              transition: "transform 0.3s ease",
-                            }}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                            >
-                              <path
-                                d="M15 8C15 8 11.3176 13 10 13C8.68233 13 5 8 5 8"
-                                stroke="#141414"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          </div>
-                          <span className="blog-txt">المدونة</span>
-                        </div>
-                      </div>
-                      <div
-                        className={`blog-elm-container absolute bg-white z-50  ${
-                          isBlogOpen ? "block" : "hidden"
-                        }`}
-                      >
-                        <AnimatePresence>
-                          {isBlogOpen && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 1, opacity: 1 }}
-                              transition={{ duration: 0.3 }}
-                              className="flex flex-col"
-                            >
-                              <a
-                                href="https://www.easy-orders.net/blog/category/%d8%a7%d9%84%d8%aa%d8%ac%d8%a7%d8%b1%d8%a9-%d8%a7%d9%84%d8%a7%d9%84%d9%83%d8%aa%d8%b1%d9%88%d9%86%d9%8a%d8%a9/"
-                                className="mobile-navlink flex items-center gap-2"
-                                target="_blank"
-                              >
-                                التجارة الالكترونية
-                              </a>
-                              <a
-                                href="https://www.easy-orders.net/blog/category/dropshipping/"
-                                className="mobile-navlink flex items-center gap-2"
-                                target="_blank"
-                              >
-                                الدروب شيبنج
-                              </a>
-                              <a
-                                href="https://www.easy-orders.net/blog/category/marketing/"
-                                className="mobile-navlink flex items-center gap-2"
-                                target="_blank"
-                              >
-                                التسويق
-                              </a>
-                              <a
-                                href="https://www.easy-orders.net/blog/category/control-your-store/"
-                                className="mobile-navlink flex items-center gap-2"
-                                target="_blank"
-                              >
-                                بناء متجرك من الصفر
-                              </a>
-                              <a
-                                href="https://www.easy-orders.net/blog/category/seo/"
-                                className="mobile-navlink flex items-center gap-2"
-                                target="_blank"
-                              >
-                                تحسين محركات البحث
-                              </a>
-                              <a
-                                href="https://www.easy-orders.net/blog/category/case-studies/"
-                                className="mobile-navlink flex items-center gap-2"
-                                target="_blank"
-                              >
-                                دراسة حالة
-                              </a>
-                              <a
-                                href="https://www.easy-orders.net/blog/category/%d8%a7%d9%84%d8%b1%d8%a8%d8%ad-%d9%85%d9%86-%d8%a7%d9%84%d8%a5%d9%86%d8%aa%d8%b1%d9%86%d8%aa/"
-                                className="mobile-navlink flex items-center gap-2"
-                                target="_blank"
-                              >
-                                الربح من الانترنت
-                              </a>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    </div>
-                    <a href="#Pricing" className="px-3 py-2 header-link">
-                      الأسعار
-                    </a>
-                    <a
-                      href="https://www.easy-orders.net/blog/category/dropshipping-course/"
-                      className="px-3 py-2 header-link"
-                      target="_blank"
-                    >
-                      الكورسات
-                    </a>
-                    <a href="#first-section1" className="px-3 py-2 header-link">
-                      الرئيسية
-                    </a>
-                  </div>
                   <div className="flex items-center">
                     <a href="#">
                       <Image
@@ -265,145 +250,60 @@ const Header: React.FC = () => {
               <div className="close-navbar flex px-2 py-2" onClick={toggleMenu}>
                 <Image src="/close-nav.png" alt="" fill />
               </div>
-              <a href="#first-section1" className="mobile-navlink">
-                الرئيسية
-              </a>
-              <a
-                href="https://www.easy-orders.net/blog/category/dropshipping-course/"
-                className="mobile-navlink"
-                target="_blank"
-              >
-                الكورسات
-              </a>
-              <a href="#Pricing" className="mobile-navlink">
-                الأسعار
-              </a>
 
-              <div className="w-full">
-                <div
-                  className="mobile-navlink flex items-center justify-between px-3 py-2 cursor-pointer"
-                  onClick={toggleBlogMenu}
-                >
-                  <div className="flex items-center gap-2 justify-center">
-                    <div
-                      className="dropdown-icon flex align-middle justify-center h-max"
-                      style={{
-                        transform: isBlogOpen
-                          ? "rotate(180deg)"
-                          : "rotate(0deg)",
-                        transition: "transform 0.3s ease",
-                      }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          d="M15 8C15 8 11.3176 13 10 13C8.68233 13 5 8 5 8"
-                          stroke="#141414"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <span className="mobile-navlink !p-0">المدونة</span>
-                  </div>
-                </div>
-
-                <AnimatePresence>
-                  {isBlogOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="flex flex-col"
-                    >
-                      <a
-                        href="https://www.easy-orders.net/blog/category/%d8%a7%d9%84%d8%aa%d8%ac%d8%a7%d8%b1%d8%a9-%d8%a7%d9%84%d8%a7%d9%84%d9%83%d8%aa%d8%b1%d9%88%d9%86%d9%8a%d8%a9/"
-                        className="mobile-navlink flex items-center gap-2"
-                        target="_blank"
-                      >
-                        التجارة الالكترونية
-                      </a>
-                      <a
-                        href="https://www.easy-orders.net/blog/category/dropshipping/"
-                        className="mobile-navlink flex items-center gap-2"
-                        target="_blank"
-                      >
-                        الدروب شيبنج
-                      </a>
-                      <a
-                        href="https://www.easy-orders.net/blog/category/marketing/"
-                        className="mobile-navlink flex items-center gap-2"
-                        target="_blank"
-                      >
-                        التسويق
-                      </a>
-                      <a
-                        href="https://www.easy-orders.net/blog/category/control-your-store/"
-                        className="mobile-navlink flex items-center gap-2"
-                        target="_blank"
-                      >
-                        بناء متجرك من الصفر
-                      </a>
-                      <a
-                        href="https://www.easy-orders.net/blog/category/seo/"
-                        className="mobile-navlink flex items-center gap-2"
-                        target="_blank"
-                      >
-                        تحسين محركات البحث
-                      </a>
-                      <a
-                        href="https://www.easy-orders.net/blog/category/case-studies/"
-                        className="mobile-navlink flex items-center gap-2"
-                        target="_blank"
-                      >
-                        دراسة حالة
-                      </a>
-                      <a
-                        href="https://www.easy-orders.net/blog/category/%d8%a7%d9%84%d8%b1%d8%a8%d8%ad-%d9%85%d9%86-%d8%a7%d9%84%d8%a5%d9%86%d8%aa%d8%b1%d9%86%d8%aa/"
-                        className="mobile-navlink flex items-center gap-2"
-                        target="_blank"
-                      >
-                        الربح من الانترنت
-                      </a>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              <a
-                href="https://app.easy-orders.net/#/login"
-                className="mobile-navlink mobile-log-in-btn"
-              >
+              <div className="flex items-center justify-center gap-2">
+                <span>Sign in</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
                   fill="none"
                 >
                   <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M7.24597 7C7.24597 9.62 9.37597 11.75 11.996 11.75C14.616 11.75 16.746 9.62 16.746 7C16.746 4.38 14.616 2.25 11.996 2.25C9.37597 2.25 7.24597 4.38 7.24597 7ZM8.74597 7C8.74597 5.21 10.206 3.75 11.996 3.75C13.786 3.75 15.246 5.21 15.246 7C15.246 8.79 13.786 10.25 11.996 10.25C10.206 10.25 8.74597 8.79 8.74597 7ZM4.24597 19C4.24597 20.52 5.47597 21.75 6.99597 21.75H16.996C18.516 21.75 19.746 20.52 19.746 19C19.746 15.83 17.166 13.25 13.996 13.25H9.99597C6.82597 13.25 4.24597 15.83 4.24597 19ZM5.74597 19C5.74861 17.8736 6.19723 16.7942 6.99369 15.9977C7.79014 15.2013 8.86961 14.7526 9.99597 14.75H13.996C15.1223 14.7526 16.2018 15.2013 16.9983 15.9977C17.7947 16.7942 18.2433 17.8736 18.246 19C18.246 19.69 17.686 20.25 16.996 20.25H6.99597C6.30597 20.25 5.74597 19.69 5.74597 19Z"
-                    fill="black"
+                    d="M5.48131 12.9013C4.30234 13.6033 1.21114 15.0367 3.09389 16.8305C4.01359 17.7066 5.03791 18.3333 6.32573 18.3333H13.6743C14.9621 18.3333 15.9864 17.7066 16.9061 16.8305C18.7888 15.0367 15.6977 13.6033 14.5187 12.9013C11.754 11.2551 8.24599 11.2551 5.48131 12.9013Z"
+                    stroke="#141414"
+                    strokeWidth="1.25"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M13.75 5.41669C13.75 7.48775 12.0711 9.16669 10 9.16669C7.92893 9.16669 6.25 7.48775 6.25 5.41669C6.25 3.34562 7.92893 1.66669 10 1.66669C12.0711 1.66669 13.75 3.34562 13.75 5.41669Z"
+                    stroke="#141414"
+                    strokeWidth="1.25"
                   />
                 </svg>
-                <span> تسجيل الدخول</span>
-              </a>
-              <div className="container-start-now-btn mobile-container-start-now-btn">
-                <a
-                  href="https://www.easy-orders.net/register/"
-                  className="start-now-btn header-link"
-                >
-                  اشترك مجاناً الآن
-                </a>
+              </div>
+              <div
+                className="mobile-navlink flex items-center justify-between  py-2 cursor-pointer !px-0"
+                onClick={toggleBlogMenu}
+              >
+                <div className="items-center gap-1 justify-center flex">
+                  <div
+                    className="dropdown-icon flex align-middle justify-center h-max"
+                    style={{
+                      transform: isBlogOpen ? "rotate(180deg)" : "rotate(0deg)",
+                      transition: "transform 0.3s ease",
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M15 8C15 8 11.3176 13 10 13C8.68233 13 5 8 5 8"
+                        stroke="#141414"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <span className="blog-txt">Categories</span>
+                </div>
               </div>
             </div>
           </div>
