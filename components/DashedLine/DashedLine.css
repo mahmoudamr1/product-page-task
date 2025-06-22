@@ -1,0 +1,4 @@
+#dashed-line .dashed-line {
+  border: 1px dashed #ccc;
+  width: 100%;
+}

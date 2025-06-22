@@ -12,7 +12,7 @@ const RightProduct = () => {
             <div className="before-discount-price">£40.00</div>
             <div className="after-discount-price">£28.00</div>
           </div>
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center lg:gap-3 gap-2">
             <div className="numper-sold">1,238 Sold</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -111,12 +111,12 @@ const RightProduct = () => {
           </div>
         </div>
         <div className="main-color gap-3 grid grid-cols-1 lg:grid-cols-2 ">
-          <div className="add-to-card flex items-center justify-center">
+          <button className="add-to-card flex items-center justify-center">
             Add To Cart
-          </div>
-          <div className="Checkout-Now flex items-center justify-center">
+          </button>
+          <button className="Checkout-Now flex items-center justify-center">
             Checkout Now
-          </div>
+          </button>
         </div>
       </div>
     </div>

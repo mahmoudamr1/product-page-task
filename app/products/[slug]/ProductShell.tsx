@@ -45,7 +45,7 @@ const ProductShell: React.FC<ProductShellProps> = ({ initialProduct }) => {
   return (
     <section
       id="product-main"
-      className=" overflow-hidden py-6 px-4 lg:px-7 lg:py-14 max-w-full"
+      className=" overflow-hidden pt-6 px-4 lg:px-7 lg:pt-14 max-w-full"
     >
       <div className="container flex flex-col gap-6 xl:gap-10 max-w-full md:max-w-screen-xl mx-auto ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-full">

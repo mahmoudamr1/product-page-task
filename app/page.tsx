@@ -1,7 +1,8 @@
 // app/page.tsx
 import ProductShell from "@/app/products/[slug]/ProductShell";
-import FirstDiscount from "@/components/ui/FirstDiscount/FirstDiscount";
-import Header from "@/components/ui/Header/Header";
+import DashedLine from "@/components/DashedLine/DashedLine";
+import FirstDiscount from "@/components/FirstDiscount/FirstDiscount";
+import Header from "@/components/Header/Header";
 import { fetchProductBySlug } from "@/lib/fetchProductBySlug";
 
 export default async function Home() {
@@ -12,6 +13,7 @@ export default async function Home() {
       <FirstDiscount />
       <Header />
       <ProductShell initialProduct={product} />
+      <DashedLine />
     </main>
   );
 }

@@ -3,24 +3,24 @@
   width: 90%;
 }
 
-.color-slected {
+#product-main .color-slected {
   padding: 6px;
   height: 45px;
   width: 80px;
 }
-.color-slected .color-variant {
+#product-main .color-slected .color-variant {
   height: 100%;
   width: 100%;
 }
-.container-color {
+#product-main .container-color {
   border-radius: 8px;
 }
-.color-variant {
+#product-main .color-variant {
   height: 45px;
   width: 80px;
   border-radius: 8px;
 }
-.Size-variant {
+#product-main .Size-variant {
   padding: 5px;
   height: 40px;
   width: 75px;
@@ -30,12 +30,12 @@
   align-items: center;
   display: flex;
 }
-.Size-slected {
+#product-main .Size-slected {
   border-radius: 8px;
   border: 1px solid #333;
   background: #ebebeb;
 }
-.add-to-card {
+#product-main .add-to-card {
   border-radius: 8px;
   background: #141414;
   padding: 15px 20px;
@@ -45,8 +45,9 @@
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
+  cursor: pointer;
 }
-.Checkout-Now {
+#product-main .Checkout-Now {
   border-radius: 8px;
   border: 1px solid #b8b8b8;
   background: #fff;
@@ -57,16 +58,137 @@
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
+  cursor: pointer;
+}
+
+#product-main .marka {
+  color: #8f8f8f;
+  font-family: "Geist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.16px;
+}
+#product-main .product-name {
+  color: #292929;
+  font-family: "Geist";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.18px;
+}
+#product-main .before-discount-price {
+  color: #666;
+  font-family: "Geist";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  text-decoration-line: line-through;
+}
+
+#product-main .after-discount-price {
+  color: #141414;
+  font-family: "Geist";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+#product-main .numper-sold {
+  color: #666;
+  font-family: "Geist";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+}
+#product-main .rating {
+  color: #141414;
+  font-family: "Geist";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
+#product-main .desc-txt {
+  color: #292929;
+  font-family: "geist Mono";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+#product-main .product-description {
+  color: #666;
+  font-family: "Geist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+#product-main .clr-txt {
+  color: #8f8f8f;
+  font-family: "geist Mono";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+#product-main .product-color {
+  color: #292929;
+  font-family: "Geist";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+#product-main .product-Size {
+  color: #292929;
+  font-family: "Geist";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+#product-main .Size-slected {
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #ebebeb;
+  color: #525252;
+  font-family: "geist Mono";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
 }
 @media (max-width: 992px) {
-  .color-slected {
+  #product-main .color-slected {
     width: 70px;
   }
 
-  .container-color {
+  #product-main .container-color {
     border-radius: 8px;
   }
-  .color-variant {
+  #product-main .color-variant {
     width: 70px;
+  }
+  #product-main .product-name {
+    font-size: 26px;
+  }
+  #product-main .before-discount-price {
+    font-size: 15px;
+  }
+
+  #product-main .after-discount-price {
+    font-size: 22px;
+  }
+  #product-main .numper-sold {
+    font-size: 18px;
+  }
+  #product-main .rating {
+    font-size: 20px;
   }
 }
