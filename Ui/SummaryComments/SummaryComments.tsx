@@ -11,15 +11,14 @@ const SummaryComments: React.FC = () => {
 
   return (
     <div className="SummaryComments grid grid-cols-12 gap-5 py-6 pe-3 ps-4 lg:p-6">
-      <div className="lg:col-span-4 col-span-12">
+      <div className="lg:col-span-4 col-span-12 grid items-center justify-center">
         <div className="flex gap-4 items-center">
           {/* دائرة التقييم */}
           <div
             style={{
               position: "relative",
-              width: size,
-              height: size,
             }}
+            className="circle-reviews"
           >
             {/* الحلقة الملونة */}
             <div
@@ -41,7 +40,7 @@ const SummaryComments: React.FC = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 fontWeight: "bold",
-                fontSize: size * 0.2,
+
                 color: "#374151",
               }}
             >

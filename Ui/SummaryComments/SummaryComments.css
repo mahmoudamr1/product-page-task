@@ -1,7 +1,7 @@
 .from-reviews {
   color: #525252;
   font-family: "Geist";
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
 }
@@ -23,6 +23,13 @@
   border-radius: 8px;
   border: 0.8px dashed #b8b8b8;
 }
+.circle-reviews {
+  height: 120px;
+  width: 120px;
+  aspect-ratio: 1;
+  font-size: 40px;
+  font-family: "geist Mono";
+}
 @media (max-width: 992px) {
   .from-reviews {
     font-size: 12px;
@@ -37,5 +44,11 @@
   .rating-charts-container svg {
     width: 17px;
     height: 17px;
+  }
+  .circle-reviews {
+    height: 80px;
+    width: 80px;
+    aspect-ratio: 1;
+    font-size: 24px;
   }
 }

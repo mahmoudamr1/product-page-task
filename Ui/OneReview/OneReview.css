@@ -1,0 +1,33 @@
+.person-image {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50%;
+}
+.review-date {
+  color: var(--Grey-01, #818b9c);
+  font-family: "Geist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+.review-txt {
+  color: #141414;
+  font-family: "Geist";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.person-name-txt {
+  color: var(--Black-01, #0b0f0e);
+  font-family: "Geist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+}
+.likes-count-container {
+  border-radius: 8px;
+  border: 1px solid var(--dGrey-01, #e4e9ee);
+  width: 90px;
+  height: 45px;
+}
