@@ -96,15 +96,16 @@ const ReviewLists: React.FC<ReviewListsProps> = ({ className = "" }) => {
         </div>
 
         {/* عرض ٤ مراجعات فقط */}
-        {currentReviews.map((r, idx) => (
-          <OneReview
-            key={idx}
-            review={r.review}
-            date={r.date}
-            person={r.person}
-            likes={r.likes}
-          />
-        ))}
+
+        <div className="all-reviews-cards flex flex-col gap-4">
+          {currentReviews.map((r, idx) => (
+            <OneReview
+              key={idx}
+              {...r}
+              showDivider={idx !== currentReviews.length - 1}
+            />
+          ))}
+        </div>
 
         {/* الباجينيشن */}
         <div className="flex items-center justify-center gap-2 mt-2">

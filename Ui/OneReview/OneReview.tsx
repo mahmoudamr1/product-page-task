@@ -14,6 +14,7 @@ interface OneReviewProps {
   person: string;
   /** عدد اللايكات (الإعجابات) */
   likes: number;
+  showDivider?: boolean;
 }
 
 const OneReview: React.FC<OneReviewProps> = ({
@@ -21,9 +22,10 @@ const OneReview: React.FC<OneReviewProps> = ({
   date,
   person,
   likes,
+  showDivider = true,
 }) => {
   return (
-    <div className="flex flex-col gap-2 lg:gap-3">
+    <div className="OneReview flex flex-col gap-2 lg:gap-3">
       <div className="flex gap-1 flex-nowrap">
         <OneStar />
         <OneStar />
@@ -92,7 +94,7 @@ const OneReview: React.FC<OneReviewProps> = ({
           </div>
         </div>
       </div>
-      <DashedLine className="!py-2" />
+      {showDivider && <DashedLine className="!py-2" />}
     </div>
   );
 };
