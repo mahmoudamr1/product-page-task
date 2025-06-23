@@ -1,5 +1,5 @@
 import FiltreComments from "@/Ui/FiltreComments/FiltreComments";
-import FiltreLists from "@/Ui/FiltreLists/FiltreLists";
+import FiltreLists from "@/Ui/FiltreAndLists/FiltreAndLists";
 import ProductsSectionTitle from "@/Ui/ProductsSectionTitle/ProductsSectionTitle";
 import SummaryComments from "@/Ui/SummaryComments/SummaryComments";
 import React from "react";

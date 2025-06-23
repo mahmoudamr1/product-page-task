@@ -4,7 +4,6 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 160%;
 }
 .rate-num {
   color: var(--Black-01, #0b0f0e);
@@ -12,7 +11,6 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 160%;
 }
 .comments-num {
   color: var(--Black-01, #0b0f0e);
@@ -20,7 +18,6 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 160%;
 }
 .SummaryComments {
   border-radius: 8px;

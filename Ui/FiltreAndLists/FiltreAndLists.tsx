@@ -2,7 +2,7 @@ import React from "react";
 import FiltreComments from "../FiltreComments/FiltreComments";
 import ReviewLists from "../ReviewLists/ReviewLists";
 
-const FiltreLists = () => {
+const FiltreAndLists = () => {
   return (
     <div className="grid lg:grid-cols-12 gap-6">
       <FiltreComments className="col-span-12 lg:col-span-4" />
@@ -11,4 +11,4 @@ const FiltreLists = () => {
   );
 };
 
-export default FiltreLists;
+export default FiltreAndLists;

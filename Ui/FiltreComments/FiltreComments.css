@@ -1,0 +1,21 @@
+.ReviewsFilter {
+  color: #292929;
+  font-family: "geist Mono";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  /* 28px */
+  letter-spacing: -0.2px;
+}
+.ReviewsFilter-container {
+  border-radius: 8px;
+  border: 0.8px dashed #bbb;
+}
+.Rating {
+  color: #141414;
+  font-family: "geist Mono";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
