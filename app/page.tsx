@@ -20,9 +20,9 @@ export default async function Home() {
       <DashedLine />
       <ProductSection1 />
       <DashedLine />
-      <ProductSection2 />
-      <DashedLine />
       <ReviewSection />
+      <DashedLine />
+      <ProductSection2 />
       <Footer />
     </main>
   );

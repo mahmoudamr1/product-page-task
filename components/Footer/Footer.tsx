@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
-    <section id="footer" className="p-5">
+    <section id="footer" className="p-5 mt-8 lg:mt-14">
       <div className="footer main-container py-10 px-5 md:px-10 lg:px-16 md:py-14 container w-full flex flex-col gap-6 xl:gap-10 max-w-screen-xl mx-auto">
         <div className="container-footer container">
           <div className="flex  lg:items-center justify-between flex-row flex-wrap lg:flex-row gap-4 lg:gap-10  gap-x-5 gap-y-6 ">
