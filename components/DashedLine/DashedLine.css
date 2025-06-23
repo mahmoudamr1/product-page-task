@@ -2,3 +2,8 @@
   border: 1px dashed #ccc;
   width: 100%;
 }
+@media (max-width: 992px) {
+  #dashed-line .dashed-line {
+    width: 90%;
+  }
+}

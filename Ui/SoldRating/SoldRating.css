@@ -1,0 +1,28 @@
+.numper-sold {
+  color: #666;
+  font-family: "Geist";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+}
+.rating {
+  color: #141414;
+  font-family: "Geist";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
+@media (max-width: 992px) {
+  .numper-sold {
+    font-size: 12px;
+  }
+  .rating {
+    font-size: 12px;
+  }
+  .after-discount-price svg {
+    height: 15px;
+    width: 15px;
+  }
+}
