@@ -14,8 +14,31 @@
 .Rating {
   color: #141414;
   font-family: "geist Mono";
-  font-size: 16px;
+  font-size: 19px;
   font-style: normal;
   font-weight: 600;
   letter-spacing: -0.2px;
+}
+.Product-Quality {
+  color: #818b9c;
+  font-family: "geist Mono";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
+}
+@media (max-width: 992px) {
+  .ReviewsFilter-container .numper-sold {
+    font-size: 19px;
+  }
+  .ReviewsFilter-container .rating {
+    font-size: 19px;
+  }
+  .ReviewsFilter-container .after-discount-price svg {
+    height: unset;
+    width: unset;
+  }
+  .ReviewsFilter-container #dashed-line .dashed-line {
+    width: 100%;
+  }
 }
