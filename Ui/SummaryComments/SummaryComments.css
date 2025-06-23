@@ -1,0 +1,44 @@
+.from-reviews {
+  color: #525252;
+  font-family: "Geist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+.rate-num {
+  color: var(--Black-01, #0b0f0e);
+  font-family: "Geist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+}
+.comments-num {
+  color: var(--Black-01, #0b0f0e);
+  font-family: "Geist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+}
+.SummaryComments {
+  border-radius: 8px;
+  border: 0.8px dashed #b8b8b8;
+}
+@media (max-width: 992px) {
+  .from-reviews {
+    font-size: 12px;
+  }
+  .rate-num {
+    font-size: 12px;
+    line-height: 100%;
+  }
+  .comments-num {
+    font-size: 12px;
+  }
+  .rating-charts-container svg {
+    width: 17px;
+    height: 17px;
+  }
+}

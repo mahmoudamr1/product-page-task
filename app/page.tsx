@@ -7,6 +7,7 @@ import { fetchProductBySlug } from "@/lib/fetchProductBySlug";
 import ProductSection2 from "@/components/ProductSection2/ProductSection2";
 import ProductSection1 from "@/components/ProductSection1/ProductSection1";
 import Footer from "@/components/Footer/Footer";
+import ReviewSection from "@/components/ReviewSection/ReviewSection";
 
 export default async function Home() {
   const product = await fetchProductBySlug("Sneakers12");
@@ -21,7 +22,7 @@ export default async function Home() {
       <DashedLine />
       <ProductSection2 />
       <DashedLine />
-
+      <ReviewSection />
       <Footer />
     </main>
   );
