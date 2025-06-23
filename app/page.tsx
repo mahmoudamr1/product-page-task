@@ -1,10 +1,11 @@
 // app/page.tsx
 import ProductShell from "@/app/products/[slug]/ProductShell";
-import ProductSection from "@/components/ProductSection/ProductSection";
 import DashedLine from "@/components/DashedLine/DashedLine";
 import FirstDiscount from "@/components/FirstDiscount/FirstDiscount";
 import Header from "@/components/Header/Header";
 import { fetchProductBySlug } from "@/lib/fetchProductBySlug";
+import ProductSection2 from "@/components/ProductSection2/ProductSection2";
+import ProductSection1 from "@/components/ProductSection1/ProductSection1";
 
 export default async function Home() {
   const product = await fetchProductBySlug("Sneakers12");
@@ -15,7 +16,9 @@ export default async function Home() {
       <Header />
       <ProductShell initialProduct={product} />
       <DashedLine />
-      <ProductSection />
+      <ProductSection1 />
+      <DashedLine />
+      <ProductSection2 />
     </main>
   );
 }
