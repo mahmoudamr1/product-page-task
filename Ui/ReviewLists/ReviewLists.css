@@ -1,0 +1,25 @@
+.filtre-Reviews-btn.selected {
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #ebebeb;
+}
+.filtre-Reviews-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  cursor: pointer;
+  color: #141414;
+  font-family: "Geist";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1;
+}
+.ReviewLists-txt {
+  color: #292929;
+  font-family: "geist Mono";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
