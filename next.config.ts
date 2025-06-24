@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
 
   images: {
     // Allow Next.js Image to optimize from this domain:
-    domains: ["easyorders.fra1.digitaloceanspaces.com"],
+    domains: ["easyorders.fra1.digitaloceanspaces.com", "app.easy-orders.net"],
     // Alternatively, with remotePatterns:
     /*
     remotePatterns: [

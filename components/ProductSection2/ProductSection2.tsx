@@ -1,25 +1,79 @@
-import React from "react";
-import ProductsSectionTitle from "@/Ui/ProductsSectionTitle/ProductsSectionTitle";
-import OneProduct from "@/Ui/OneProduct/OneProduct";
+//ProductSection1.tsx
 
-const ProductSection2 = () => {
+"use client";
+
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import ProductsSectionTitle from "@/Ui/ProductsSectionTitle/ProductsSectionTitle";
+import OneProduct, { Product } from "@/Ui/OneProduct/OneProduct";
+
+const API_KEY = "78f869d8-65d7-4a96-a3ec-f5d3c6141ff3";
+const ENDPOINT = "https://api.easy-orders.net/api/v1/external-apps/products";
+const CATEGORY_ID = "9561bca7-ff85-4450-9e59-a008ec1afc08";
+
+/**
+ * Fetch products for the given category ID
+ */
+export async function fetchProducts(): Promise<Product[]> {
+  const url = `${ENDPOINT}?category_id=${CATEGORY_ID}`;
+  const res = await fetch(url, {
+    headers: {
+      "Api-Key": API_KEY,
+      Accept: "application/json",
+    },
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+  const json = await res.json();
+  console.log("API raw response for section 2:", json);
+
+  if (Array.isArray(json)) {
+    return json;
+  }
+  if (json.data && Array.isArray(json.data)) {
+    return json.data;
+  }
+  if (json.products && Array.isArray(json.products)) {
+    return json.products;
+  }
+
+  return [];
+}
+
+/**
+ * ProductSection2 - displays the "Popular this week" product grid
+ */
+export function ProductSection2() {
+  const {
+    data: products = [],
+    isLoading,
+    isError,
+    error,
+  } = useQuery<Product[], Error>({
+    queryKey: ["products", CATEGORY_ID],
+    queryFn: fetchProducts,
+  });
+
+  if (isLoading) return <div>Loading products…</div>;
+  if (isError)
+    return <div className="text-red-500">Error: {error.message}</div>;
+
   return (
     <section
       id="ProductSection2"
-      className="  overflow-hidden px-4 lg:px-7 max-w-full"
+      className="overflow-hidden px-4 lg:px-7 max-w-full"
     >
       <div className="container flex flex-col gap-6 xl:gap-10 max-w-full md:max-w-screen-xl mx-auto ">
         <ProductsSectionTitle title="Popular this week" actionText="View All" />
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 gap-y-8">
-          <OneProduct />
-          <OneProduct />
-          <OneProduct />
-          <OneProduct />
-          <OneProduct />
+          {products.map((p) => (
+            <OneProduct key={p.id} product={p} />
+          ))}
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default ProductSection2;

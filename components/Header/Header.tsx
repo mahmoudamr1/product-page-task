@@ -49,8 +49,8 @@ const Header: React.FC = () => {
           <div className="mx-auto max-w-7xl p-2 sm:p-6 lg:p-4 lg:px-0">
             <div className="relative flex h-16 items-center justify-between gap-2">
               <div className="flex flex-1 items-center justify-between sm:items-stretch sm:justify-between w-full order-2">
-                <div className="flex gap-5">
-                  <div className="Shopping-cart-logo flex items-center justify-center ">
+                <div className="flex gap-5  items-center justify-center">
+                  <div className="Shopping-cart-logo flex items-center justify-center relative h-fit ms-3">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -78,6 +78,9 @@ const Header: React.FC = () => {
                         strokeLinecap="round"
                       />
                     </svg>
+                    <div className="flex absolute top-[-12px] right-[-10px] rounded-2xl bg-black text-white w-5 h-5 items-center justify-center text-xs">
+                      1
+                    </div>
                   </div>
                   <div className="wish-heart-logo flex items-center justify-center ">
                     <svg
@@ -182,7 +185,7 @@ const Header: React.FC = () => {
                     </svg>
                   </div>
                 </div>
-                <div className="flex gap-5">
+                <div className="flex gap-5 items-center justify-center">
                   <div className="flex items-center">
                     <a href="#">
                       <Image
