@@ -16,7 +16,8 @@ interface Props {
 }
 
 export default async function ProductDetailPage({ params }: Props) {
-  const { slug } = params;
+  // ⚠️ Await params before destructuring!
+  const { slug } = await params;
 
   // 1. Fetch the product
   let product;

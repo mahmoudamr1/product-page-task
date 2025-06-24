@@ -85,9 +85,9 @@ const OneProduct: React.FC<OneProductProps> = ({ product }) => {
         </div>
         <div className="product-name">{data.name}</div>
         <div className="price-container flex items-center gap-4">
-          <div className="sale_price">${data.sale_price ?? data.price}</div>
+          <div className="sale_price">{data.sale_price ?? data.price}$</div>
           <div className="price-before-discount line-through text-gray-500">
-            ${data.price}
+            {data.price}$
           </div>
         </div>
         <SoldRating

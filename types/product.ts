@@ -11,10 +11,10 @@ export interface VariationProp {
   id: string;
   name: string; // brown | 40 | …
   variation_id: string;
-  value?: string; // URL للصورة لو type = image
+  value?: string; // URL للصورة لو type = image، أو كود لون لو type = color
 }
 
-export type VariationType = "image" | "button";
+export type VariationType = "image" | "button" | "color";
 
 export interface Variation {
   id: string;

@@ -138,6 +138,24 @@
   width: max-content;
   transform: translateX(-50%);
 }
+.close-navbar img {
+  width: 40px !important;
+  height: 40px !important;
+  float: left;
+  position: relative !important;
+  cursor: pointer;
+}
+.navbar-collapse {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 400px;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
 @media (max-width: 1024px) {
   .navbar-collapse {
     position: fixed;

@@ -1,38 +1,57 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // لتأثيرات الـ collapse
+import { motion, AnimatePresence } from "framer-motion";
 import "./Header.css";
 import Image from "next/image";
+import { useCartStore } from "@/lib/useCartStore";
+import Cart from "@/components/Cart/Cart";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isBlogOpen, setIsBlogOpen] = useState<boolean>(false); // حالة لقائمة المدونة الفرعية
+  const [isBlogOpen, setIsBlogOpen] = useState<boolean>(false);
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const navbarCollapseRef = useRef<HTMLDivElement | null>(null);
   const closeBtnAreaRef = useRef<HTMLButtonElement | null>(null);
+  const cartRef = useRef<HTMLDivElement | null>(null);
+  const cartBtnRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const navbarCollapse = navbarCollapseRef.current;
-    const closeBtnArea = closeBtnAreaRef.current;
-
-    if (!navbarCollapse || !closeBtnArea) return;
-
     const outsideClickHandler = (event: MouseEvent) => {
+      const navbarCollapse = navbarCollapseRef.current;
+      const closeBtnArea = closeBtnAreaRef.current;
+      const cart = cartRef.current;
+      const cartBtn = cartBtnRef.current;
+
+      // Handle sidebar menu
       if (
         isOpen &&
+        navbarCollapse &&
+        closeBtnArea &&
         !navbarCollapse.contains(event.target as Node) &&
         !closeBtnArea.contains(event.target as Node)
       ) {
         setIsOpen(false);
-        setIsBlogOpen(false); // إغلاق القائمة الفرعية عند النقر خارج القائمة
+        setIsBlogOpen(false);
+      }
+
+      // Handle cart
+      if (
+        isCartOpen &&
+        cart &&
+        cartBtn &&
+        !cart.contains(event.target as Node) &&
+        !cartBtn.contains(event.target as Node)
+      ) {
+        setIsCartOpen(false);
       }
     };
 
-    document.addEventListener("click", outsideClickHandler);
+    document.addEventListener("mousedown", outsideClickHandler);
 
     return () => {
-      document.removeEventListener("click", outsideClickHandler);
+      document.removeEventListener("mousedown", outsideClickHandler);
     };
-  }, [isOpen]);
+  }, [isOpen, isCartOpen]);
 
   const toggleMenu = (): void => {
     setIsOpen((prevState) => !prevState);
@@ -42,6 +61,13 @@ const Header: React.FC = () => {
     setIsBlogOpen((prevState) => !prevState);
   };
 
+  const toggleCart = () => {
+    setIsCartOpen((prev) => !prev);
+  };
+
+  const cartCount = useCartStore((s) =>
+    s.items.reduce((sum, item) => sum + item.quantity, 0)
+  );
   return (
     <div className="main-header flex items-center justify-center">
       <div className="flex items-center justify-center w-full max-w-screen-xl header1">
@@ -50,7 +76,11 @@ const Header: React.FC = () => {
             <div className="relative flex h-16 items-center justify-between gap-2">
               <div className="flex flex-1 items-center justify-between sm:items-stretch sm:justify-between w-full order-2">
                 <div className="flex gap-5  items-center justify-center">
-                  <div className="Shopping-cart-logo flex items-center justify-center relative h-fit ms-3">
+                  <div
+                    onClick={toggleCart}
+                    ref={cartBtnRef}
+                    className="Shopping-cart-logo flex items-center justify-center relative h-fit ms-3 cursor-pointer"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -78,10 +108,18 @@ const Header: React.FC = () => {
                         strokeLinecap="round"
                       />
                     </svg>
-                    <div className="flex absolute top-[-12px] right-[-10px] rounded-2xl bg-black text-white w-5 h-5 items-center justify-center text-xs">
-                      1
-                    </div>
+
+                    {/* عداد العناصر */}
+                    {cartCount != null && (
+                      <div className="absolute -top-3 -right-2 rounded-full bg-black text-white w-5 h-5 flex items-center justify-center text-xs">
+                        {cartCount}
+                      </div>
+                    )}
                   </div>
+                  <div ref={cartRef} className="cart-container">
+                    {isCartOpen && <Cart toggleCart={toggleCart} />}
+                  </div>
+
                   <div className="wish-heart-logo flex items-center justify-center ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

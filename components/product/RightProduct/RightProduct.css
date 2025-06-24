@@ -6,7 +6,9 @@
 #product-main .color-slected {
   padding: 6px;
   height: 45px;
-  width: 80px;
+  min-width: 80px;
+  border: 1px solid;
+  width: max-content;
 }
 #product-main .color-slected .color-variant {
   height: 100%;
@@ -14,6 +16,7 @@
 }
 #product-main .container-color {
   border-radius: 8px;
+  cursor: pointer;
 }
 #product-main .color-variant {
   height: 45px;
@@ -23,12 +26,19 @@
 #product-main .Size-variant {
   padding: 5px;
   height: 40px;
-  width: 75px;
+  min-width: 75px;
   border-radius: 8px;
   border: 1px solid #e6e6e6;
   justify-content: center;
   align-items: center;
   display: flex;
+  color: #141414;
+  font-family: "Geist";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  cursor: pointer;
+  width: max-content;
 }
 #product-main .Size-slected {
   border-radius: 8px;
@@ -159,7 +169,8 @@
 }
 @media (max-width: 992px) {
   #product-main .color-slected {
-    width: 70px;
+    min-width: 70px;
+    width: max-content;
   }
 
   #product-main .container-color {

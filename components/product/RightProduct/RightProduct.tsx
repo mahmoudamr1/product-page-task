@@ -1,10 +1,27 @@
 // components/product/RightProduct/RightProduct.tsx
-import React from "react";
+import React, { useState } from "react";
 import "./RightProduct.css";
-import { Product } from "@/types/product";
+import {
+  Product,
+  Variation,
+  VariationProp,
+  ProductVariant,
+} from "@/types/product";
+import { useCartStore } from "@/lib/useCartStore";
 
 export interface RightProductProps {
   product: Product;
+}
+
+// Helper to pick white or black text based on background brightness
+function getContrastColor(hex: string) {
+  const c = hex.charAt(0) === "#" ? hex.substring(1) : hex;
+  const num = parseInt(c, 16);
+  const r = (num >> 16) & 0xff;
+  const g = (num >> 8) & 0xff;
+  const b = num & 0xff;
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  return yiq >= 128 ? "#000000" : "#FFFFFF";
 }
 
 const RightProduct: React.FC<RightProductProps> = ({ product }) => {
@@ -16,24 +33,61 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
     quantity,
     buy_now_text,
     variations,
+    variants,
     categories,
   } = product;
 
-  // Strip HTML tags for plain text description
+  // track selected props per variation
+  const [selectedProps, setSelectedProps] = useState<Record<string, string>>(
+    {}
+  );
+
+  // strip HTML tags
   const descriptionText = description.replace(/<[^>]+>/g, "");
 
-  const colorVar = variations?.find((v) => v.name.toLowerCase() === "color");
-  const sizeVar = variations?.find((v) => v.name.toLowerCase() === "size");
+  const handleSelectProp = (variationName: string, propName: string) => {
+    setSelectedProps((prev) => ({
+      ...prev,
+      [variationName]: prev[variationName] === propName ? "" : propName,
+    }));
+  };
+
+  // find matching variant
+  const selectedVariant: ProductVariant | undefined = variants?.find((v) =>
+    v.variation_props.every(
+      (vp) => selectedProps[vp.variation] === vp.variation_prop
+    )
+  );
+
+  const displayPrice = selectedVariant?.price ?? price;
+  const displaySalePrice = selectedVariant?.sale_price || sale_price;
+
+  // cart store action
+  const addItem = useCartStore((s) => s.addItem);
+
+  // when clicking "Add To Cart"
+  const handleAddToCart = () => {
+    // ensure every variation has a selection (fallback to first prop)
+    const finalProps: Record<string, string> = {};
+    variations?.forEach((v) => {
+      finalProps[v.name] = selectedProps[v.name] || v.props[0]?.name || "";
+    });
+    addItem(product, finalProps, 1);
+  };
 
   return (
-    <div>
-      <div className="flex flex-col gap-4 lg:gap-5 ">
+    <div id="product-main">
+      <div className="flex flex-col gap-4 lg:gap-5">
         <div className="marka">{categories?.[0]?.name || ""}</div>
         <div className="product-name">{name}</div>
         <div className="flex justify-between gap-4 w-full">
           <div className="flex items-center justify-center gap-3">
-            {sale_price && <div className="before-discount-price">{price}</div>}
-            <div className="after-discount-price">{sale_price ?? price}</div>
+            {displaySalePrice && (
+              <div className="before-discount-price">{displayPrice}$</div>
+            )}
+            <div className="after-discount-price">
+              {displaySalePrice ?? displayPrice}$
+            </div>
           </div>
           <div className="flex items-center justify-center lg:gap-3 gap-2">
             <div className="numper-sold">{quantity} Sold</div>
@@ -63,52 +117,86 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
             </div>
           </div>
         </div>
+
         <div className="flex items-center justify-center w-full py-2">
           <div className="dashed-line"></div>
         </div>
-        <div className="flex flex-col gap-2 text-start ">
-          <div className="desc-txt">Description:</div>
+
+        <div className="flex flex-col gap-2 text-start">
+          <div className="desc-txt">الوصف:</div>
           <div className="product-description">{descriptionText}</div>
         </div>
-        {colorVar && (
-          <div className="main-color flex flex-col gap-3">
+
+        {variations?.map((variation: Variation) => (
+          <div
+            key={variation.id}
+            className="main-variation flex flex-col gap-3"
+          >
             <div className="flex gap-2 text-start">
-              <div className="clr-txt">Color :</div>
-              <div className="product-color">{colorVar.props[0]?.name}</div>
+              <div className="clr-txt">{variation.name} :</div>
+              <div className="product-color">
+                {selectedProps[variation.name] || variation.props[0]?.name}
+              </div>
             </div>
-            <div className="flex gap-3 flex-wrap ">
-              {colorVar.props.map((p) => (
-                <div key={p.id} className="container-color">
+            <div className="flex gap-3 flex-wrap">
+              {variation.props.map((prop: VariationProp) => {
+                const isSelected = selectedProps[variation.name] === prop.name;
+                return (
                   <div
-                    className="color-variant"
-                    style={{ backgroundColor: p.value || "#EBEBEB" }}
-                  />
-                </div>
-              ))}
+                    key={prop.id}
+                    onClick={() => handleSelectProp(variation.name, prop.name)}
+                    className={
+                      variation.type === "color"
+                        ? `container-color ${isSelected ? "color-slected" : ""}`
+                        : `Size-variant ${isSelected ? "Size-slected" : ""}`
+                    }
+                    style={
+                      variation.type === "color" && isSelected && prop.value
+                        ? { border: `2px solid ${prop.value}` }
+                        : undefined
+                    }
+                  >
+                    {variation.type === "color" ? (
+                      <div
+                        className="color-variant"
+                        style={{
+                          backgroundColor: prop.value || undefined,
+                          fontSize: "16px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: prop.value
+                            ? getContrastColor(prop.value)
+                            : "#000000",
+                        }}
+                      >
+                        {prop.name}
+                      </div>
+                    ) : variation.type === "image" && prop.value ? (
+                      <img
+                        src={prop.value}
+                        alt={prop.name}
+                        className="variant-image"
+                      />
+                    ) : (
+                      prop.name
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
-        )}
-        {sizeVar && (
-          <div className="main-color flex flex-col gap-3">
-            <div className="flex gap-2 text-start">
-              <div className="clr-txt">Size :</div>
-              <div className="product-Size">{sizeVar.props[0]?.name}</div>
-            </div>
-            <div className="flex gap-3 flex-wrap ">
-              {sizeVar.props.map((p) => (
-                <div key={p.id} className="Size-variant">
-                  {p.name}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-        <div className="main-color gap-3 grid grid-cols-1 lg:grid-cols-2 ">
-          <button className="add-to-card flex items-center justify-center">
-            {buy_now_text}
+        ))}
+
+        <div className="main-variation gap-3 grid grid-cols-1 lg:grid-cols-2">
+          <button
+            onClick={handleAddToCart}
+            className="add-to-card flex items-center justify-center"
+          >
+            Add To Cart
           </button>
           <button className="Checkout-Now flex items-center justify-center">
-            Checkout Now
+            {buy_now_text}
           </button>
         </div>
       </div>
