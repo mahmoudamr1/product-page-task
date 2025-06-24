@@ -1,19 +1,42 @@
+// components/product/RightProduct/RightProduct.tsx
 import React from "react";
 import "./RightProduct.css";
+import { Product } from "@/types/product";
 
-const RightProduct = () => {
+export interface RightProductProps {
+  product: Product;
+}
+
+const RightProduct: React.FC<RightProductProps> = ({ product }) => {
+  const {
+    name,
+    description = "",
+    price,
+    sale_price,
+    quantity,
+    buy_now_text,
+    variations,
+    categories,
+  } = product;
+
+  // Strip HTML tags for plain text description
+  const descriptionText = description.replace(/<[^>]+>/g, "");
+
+  const colorVar = variations?.find((v) => v.name.toLowerCase() === "color");
+  const sizeVar = variations?.find((v) => v.name.toLowerCase() === "size");
+
   return (
     <div>
       <div className="flex flex-col gap-4 lg:gap-5 ">
-        <div className="marka">John Lewis ANYDAY</div>
-        <div className="product-name">Long Sleeve Overshirt, Khaki, 6</div>
+        <div className="marka">{categories?.[0]?.name || ""}</div>
+        <div className="product-name">{name}</div>
         <div className="flex justify-between gap-4 w-full">
           <div className="flex items-center justify-center gap-3">
-            <div className="before-discount-price">£40.00</div>
-            <div className="after-discount-price">£28.00</div>
+            {sale_price && <div className="before-discount-price">{price}</div>}
+            <div className="after-discount-price">{sale_price ?? price}</div>
           </div>
           <div className="flex items-center justify-center lg:gap-3 gap-2">
-            <div className="numper-sold">1,238 Sold</div>
+            <div className="numper-sold">{quantity} Sold</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="6"
@@ -36,7 +59,6 @@ const RightProduct = () => {
                   fill="#FFA439"
                 />
               </svg>
-
               <div className="rating">4.5</div>
             </div>
           </div>
@@ -46,73 +68,44 @@ const RightProduct = () => {
         </div>
         <div className="flex flex-col gap-2 text-start ">
           <div className="desc-txt">Description:</div>
-          <div className="product-description">
-            Boba etiam ut bulla tea est potus dilectus singulari compositione
-            saporum et textuum, quae in Taiwan annis 1980 orta sunt. Boba refert
-            ad pilas masticas tapiocas in fundo potus inventas, quae typice
-            lacte tea nigro sapiuntur. Boba phaenomenon. See More....
-          </div>
+          <div className="product-description">{descriptionText}</div>
         </div>
-        <div className="main-color flex flex-col gap-3">
-          <div className="flex gap-2 text-start">
-            <div className="clr-txt">Color :</div>
-            <div className="product-color">Royal Brown</div>
-          </div>
-          <div className="flex gap-3 flex-wrap ">
-            <div
-              className="container-color color-slected "
-              style={{
-                border: "1px solid #EBEBEB",
-              }}
-            >
-              <div
-                className="color-variant"
-                style={{
-                  backgroundColor: "#EBEBEB",
-                }}
-              ></div>
+        {colorVar && (
+          <div className="main-color flex flex-col gap-3">
+            <div className="flex gap-2 text-start">
+              <div className="clr-txt">Color :</div>
+              <div className="product-color">{colorVar.props[0]?.name}</div>
             </div>
-            <div className="container-color  ">
-              <div
-                className="color-variant"
-                style={{
-                  backgroundColor: "#534029",
-                }}
-              ></div>
-            </div>
-            <div className="container-color  ">
-              <div
-                className="color-variant"
-                style={{
-                  backgroundColor: "#3A6A90",
-                }}
-              ></div>
-            </div>
-            <div className="container-color  ">
-              <div
-                className="color-variant"
-                style={{
-                  backgroundColor: "#11171D",
-                }}
-              ></div>
+            <div className="flex gap-3 flex-wrap ">
+              {colorVar.props.map((p) => (
+                <div key={p.id} className="container-color">
+                  <div
+                    className="color-variant"
+                    style={{ backgroundColor: p.value || "#EBEBEB" }}
+                  />
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-        <div className="main-color flex flex-col gap-3">
-          <div className="flex gap-2 text-start">
-            <div className="clr-txt">Size :</div>
-            <div className="product-Size">8</div>
+        )}
+        {sizeVar && (
+          <div className="main-color flex flex-col gap-3">
+            <div className="flex gap-2 text-start">
+              <div className="clr-txt">Size :</div>
+              <div className="product-Size">{sizeVar.props[0]?.name}</div>
+            </div>
+            <div className="flex gap-3 flex-wrap ">
+              {sizeVar.props.map((p) => (
+                <div key={p.id} className="Size-variant">
+                  {p.name}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex gap-3 flex-wrap ">
-            <div className="Size-variant Size-slected">6</div>
-            <div className="Size-variant">8</div>
-            <div className="Size-variant">10</div>
-            <div className="Size-variant">14</div>
-          </div>
-        </div>
+        )}
         <div className="main-color gap-3 grid grid-cols-1 lg:grid-cols-2 ">
           <button className="add-to-card flex items-center justify-center">
-            Add To Cart
+            {buy_now_text}
           </button>
           <button className="Checkout-Now flex items-center justify-center">
             Checkout Now
@@ -124,17 +117,3 @@ const RightProduct = () => {
 };
 
 export default RightProduct;
-
-// <div className="space-y-4 col-span-1 ">
-//           <h1 className="text-2xl font-bold">{activeProduct.name}</h1>
-//           <div
-//             className="prose"
-//             dangerouslySetInnerHTML={{ __html: activeProduct.description }}
-//           />
-//           <p className="text-xl font-semibold">
-//             السعر: {activeProduct.sale_price || activeProduct.price} ج.م
-//           </p>
-//           <button className="px-6 py-2 bg-green-600 text-white rounded">
-//             {activeProduct.buy_now_text}
-//           </button>
-//         </div>

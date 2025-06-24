@@ -1,4 +1,4 @@
-//ProductSection1.tsx
+// ProductSection1.tsx
 "use client";
 
 import React from "react";
@@ -6,7 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import ProductsSectionTitle from "@/Ui/ProductsSectionTitle/ProductsSectionTitle";
 import OneProduct, { Product } from "@/Ui/OneProduct/OneProduct";
 
-const API_KEY = "78f869d8-65d7-4a96-a3ec-f5d3c6141ff3";
+const API_KEY =
+  process.env.NEXT_PUBLIC_API_KEY || "78f869d8-65d7-4a96-a3ec-f5d3c6141ff3";
 const ENDPOINT = "https://api.easy-orders.net/api/v1/external-apps/products";
 const CATEGORY_ID = "29aec3e7-8732-48e8-ade6-16b8188255d1";
 
@@ -17,6 +18,7 @@ async function fetchProducts(): Promise<Product[]> {
       "Api-Key": API_KEY,
       Accept: "application/json",
     },
+    next: { revalidate: 300 }, // Revalidate every 300 seconds (5 minutes)
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
@@ -40,7 +42,31 @@ export function ProductSection1() {
     queryFn: fetchProducts,
   });
 
-  if (isLoading) return <div>Loading products…</div>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center py-10">
+        <svg
+          className="w-8 h-8 animate-spin text-gray-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4l-4 4v-4a4 4 0 00-4 4z"
+          />
+        </svg>
+      </div>
+    );
   if (isError)
     return <div className="text-red-500">Error: {error.message}</div>;
 

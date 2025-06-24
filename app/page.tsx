@@ -10,14 +10,12 @@ import Footer from "@/components/Footer/Footer";
 import ReviewSection from "@/components/ReviewSection/ReviewSection";
 
 export default async function Home() {
-  const product = await fetchProductBySlug("Sneakers12");
-
   return (
     <main className="">
       <FirstDiscount />
       <Header />
-      <ProductShell initialProduct={product} />
-      <DashedLine />
+      {/* <ProductShell initialProduct={product} /> */}
+      <DashedLine className="!py-3 invisible" />
       <ProductSection1 />
       <DashedLine />
       <ReviewSection />

@@ -1,354 +1,298 @@
-{
-  "id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-  "updated_at": "2025-02-28T16:32:44.795008Z",
-  "created_at": "2025-01-02T16:57:51.578677Z",
-  "store_id": "2b59864b-9079-4ea0-a978-ba4d2632a50b",
-  "name": "Achilles Pro - Genuine Suede X Leather Sneakers",
-  "price": 190,
-  "sale_price": 160,
-  "description": "<ul><li>Made with cowhide leather</li><li>Nappa leather with a brushed finish</li><li>Leather and fabric insole and lining</li><li>ncludes special padded insole for greater comfort</li><li>Sole Material :&nbsp;TR</li><li>Shoe Lining: Genuine leather</li></ul><p>Shipping information</p><p><br></p><p>We ship all over Egypt within 2-5 business days (Friday &amp; Saturday are not a Business Days)</p><p><strong>Delivery Time Per Destination</strong></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><ul><li>Cairo &amp;&nbsp;Alex&nbsp;: (2-4 business days)</li><li>Delta,&nbsp;Suez, Portsaid, Ismailya&nbsp;:&nbsp;(3-5 business days)</li><li>Beni Swef, Menya, Asyout, SohagQatar :&nbsp;(3-5&nbsp;business days)</li><li>Qena, Luxor, Aswan : (1 week business days)</li><li>North Sinai, Red Sea, New Valley, Sallom : (1 week business days)</li></ul><p><strong>Exchanges for Local Orders (Egypt)</strong></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><ul><li>Exchanges could be done within 14 days of receiving the order, with an extra fees for the exchange shipping.</li><li>Refunds could be done within 14 days of receiving the order, with an extra fees for the exchange shipping.</li><li>Refund or exchange could be via our varies channels</li><li>Once you'd like to talk to us, we're here to listen you for feedback, complains or exchanges. You could reach out vis our various channels</li><li class=\"ql-indent-1\"><strong>Instagram</strong>:&nbsp;<a href=\"https://www.instagram.com/bluebrandeg/?fbclid=IwAR1UzVZImVegfRhy45RxE6M5dJ9fxozngpueD6Cp3emk5YclEq1SuYKMNaY\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"background-color: transparent; color: var(--colorLink);\">h</a>ttps//www.instagram.com/achilles.shoes</li></ul><p><strong>Our working hours are 11 PM - 11 PM (Friday &amp; Saturday are off). All inquiries will be attended to within one working day</strong></p>",
-  "slug": "Sneakers12",
-  "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1735836892282056854.webp",
-  "images": [
-    "https://easyorders.fra1.digitaloceanspaces.com/1734958738245433660.webp"
-  ],
-  "position": 0,
-  "hidden": false,
-  "quantity": 0,
-  "track_stock": false,
-  "disable_orders_for_no_stock": false,
-  "show_landing_in_same_page": false,
-  "buy_now_text": "Go To Checkout",
-  "is_fixed_bottom_buy": true,
-  "is_one_page_checkout": true,
-  "fake_visitors_min": 20,
-  "fake_visitors_max": 70,
-  "fake_timer_hours": 1,
-  "is_quantity_hidden": false,
-  "is_header_hidden": false,
-  "is_free_shipping": false,
-  "custom_currency": "",
-  "is_taager_submit_active": false,
-  "is_ecombo_submit_active": false,
-  "is_mosaweq_submit_active": false,
-  "is_alturky_submit_active": false,
-  "is_jamaica_submit_active": false,
-  "is_engzny_submit_active": false,
-  "is_digital": false,
-  "is_cloaking_active": false,
-  "variations": [
-    {
-      "id": "2b6773f4-95e6-47cf-adb2-a022a8d12e03",
-      "name": "color",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "type": "image",
-      "props": [
-        {
-          "id": "5e3deb33-53e4-4503-a6d8-431faefef081",
-          "name": "brown",
-          "variation_id": "2b6773f4-95e6-47cf-adb2-a022a8d12e03",
-          "value": "https://easyorders.fra1.digitaloceanspaces.com/1735836944747077894.webp"
-        },
-        {
-          "id": "9ff0d405-bf41-4c1c-b202-90acd9f94e23",
-          "name": "black",
-          "variation_id": "2b6773f4-95e6-47cf-adb2-a022a8d12e03",
-          "value": "https://easyorders.fra1.digitaloceanspaces.com/1735836957769748053.webp"
-        },
-        {
-          "id": "aa3f9cd5-0924-4257-9c90-273f1618fe7f",
-          "name": "biege",
-          "variation_id": "2b6773f4-95e6-47cf-adb2-a022a8d12e03",
-          "value": "https://easyorders.fra1.digitaloceanspaces.com/1735836966489475540.jpg"
-        }
-      ]
+[
+  {
+    "created_at": "2025-06-10T05:32:56.44052Z",
+    "custom_currency": "",
+    "digital_link": {
+      "created_at": "0001-01-01T00:00:00Z",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "link": "",
+      "product": null,
+      "product_id": "00000000-0000-0000-0000-000000000000",
+      "sales_count": 0,
+      "updated_at": "0001-01-01T00:00:00Z",
+      "users": null
     },
-    {
-      "id": "64ec4c6f-a9b5-4d9a-95be-a60608b9469e",
-      "name": "size",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "type": "button",
-      "props": [
-        {
-          "id": "0030a807-d91b-4ca8-8d7e-04c4dc82f2cb",
-          "name": "38",
-          "variation_id": "64ec4c6f-a9b5-4d9a-95be-a60608b9469e"
-        },
-        {
-          "id": "96f0fd35-476d-4d2c-9bb6-bbacd7482b77",
-          "name": "40",
-          "variation_id": "64ec4c6f-a9b5-4d9a-95be-a60608b9469e"
-        },
-        {
-          "id": "76ba0340-ec10-4c00-ab4d-121c82ca4fa2",
-          "name": "42",
-          "variation_id": "64ec4c6f-a9b5-4d9a-95be-a60608b9469e"
-        }
-      ]
-    }
-  ],
-  "variants": [
-    {
-      "id": "f059a8ed-c0d3-47ec-a287-2646db73f625",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "price": 190,
-      "sale_price": 0,
-      "quantity": 0,
-      "taager_code": "",
-      "variation_props": [
-        {
-          "id": "cdeb080c-f007-4d20-a68c-719130e9ab82",
-          "variation": "color",
-          "variation_prop": "brown",
-          "product_variant_id": "f059a8ed-c0d3-47ec-a287-2646db73f625"
-        },
-        {
-          "id": "19160cf8-d254-43ff-a8d0-2f8ce2662982",
-          "variation": "size",
-          "variation_prop": "38",
-          "product_variant_id": "f059a8ed-c0d3-47ec-a287-2646db73f625"
-        }
-      ]
+    "disable_orders_for_no_stock": false,
+    "hidden": false,
+    "id": "96037155-e107-49d3-82ac-d34a8722608e",
+    "is_alturky_submit_active": false,
+    "is_cloaking_active": false,
+    "is_digital": false,
+    "is_ecombo_submit_active": false,
+    "is_engzny_submit_active": false,
+    "is_free_shipping": false,
+    "is_header_hidden": false,
+    "is_jamaica_submit_active": false,
+    "is_mosaweq_submit_active": false,
+    "is_quantity_hidden": false,
+    "is_taager_submit_active": false,
+    "name": "glasses",
+    "position": 0,
+    "price": 5000,
+    "quantity": 0,
+    "show_landing_in_same_page": false,
+    "slug": "glasses",
+    "store_id": "92a0268a-b96c-4225-8bcb-85d7f9527b41",
+    "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1749533571062584220.png",
+    "track_stock": false
+  },
+  {
+    "created_at": "2025-02-06T08:25:55.895206Z",
+    "custom_currency": "",
+    "digital_link": {
+      "created_at": "0001-01-01T00:00:00Z",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "link": "",
+      "product": null,
+      "product_id": "00000000-0000-0000-0000-000000000000",
+      "sales_count": 0,
+      "updated_at": "0001-01-01T00:00:00Z",
+      "users": null
     },
-    {
-      "id": "53a8fbf4-f306-4dec-882a-8fc7aa97e5d5",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "price": 190,
-      "sale_price": 0,
-      "quantity": 0,
-      "taager_code": "",
-      "variation_props": [
-        {
-          "id": "fd7d1531-3a19-4bac-af11-39e54c0c3963",
-          "variation": "color",
-          "variation_prop": "brown",
-          "product_variant_id": "53a8fbf4-f306-4dec-882a-8fc7aa97e5d5"
-        },
-        {
-          "id": "e8726907-b19c-4fbe-b8c4-c86229bf68e2",
-          "variation": "size",
-          "variation_prop": "40",
-          "product_variant_id": "53a8fbf4-f306-4dec-882a-8fc7aa97e5d5"
-        }
-      ]
+    "disable_orders_for_no_stock": false,
+    "hidden": false,
+    "id": "b0701ffd-41db-4e2d-9690-7e1a8834cbdd",
+    "is_alturky_submit_active": false,
+    "is_cloaking_active": false,
+    "is_digital": false,
+    "is_ecombo_submit_active": false,
+    "is_engzny_submit_active": false,
+    "is_free_shipping": false,
+    "is_header_hidden": false,
+    "is_jamaica_submit_active": false,
+    "is_mosaweq_submit_active": false,
+    "is_quantity_hidden": false,
+    "is_taager_submit_active": false,
+    "name": "red-watch",
+    "position": 0,
+    "price": 5000,
+    "quantity": 0,
+    "show_landing_in_same_page": false,
+    "slug": "red-watch",
+    "store_id": "92a0268a-b96c-4225-8bcb-85d7f9527b41",
+    "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1738830343817881052.png",
+    "track_stock": false
+  },
+  {
+    "created_at": "2024-10-16T20:16:55.710504Z",
+    "custom_currency": "",
+    "digital_link": {
+      "created_at": "0001-01-01T00:00:00Z",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "link": "",
+      "product": null,
+      "product_id": "00000000-0000-0000-0000-000000000000",
+      "sales_count": 0,
+      "updated_at": "0001-01-01T00:00:00Z",
+      "users": null
     },
-    {
-      "id": "b957f85d-84bc-4c3a-a107-6d52ab1614aa",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "price": 190,
-      "sale_price": 0,
-      "quantity": 0,
-      "taager_code": "",
-      "variation_props": [
-        {
-          "id": "5419f774-0d28-4714-8ea0-418b7edbebbb",
-          "variation": "color",
-          "variation_prop": "brown",
-          "product_variant_id": "b957f85d-84bc-4c3a-a107-6d52ab1614aa"
-        },
-        {
-          "id": "573fbba9-a687-4929-9b13-1000de2ca3cc",
-          "variation": "size",
-          "variation_prop": "42",
-          "product_variant_id": "b957f85d-84bc-4c3a-a107-6d52ab1614aa"
-        }
-      ]
+    "disable_orders_for_no_stock": false,
+    "hidden": false,
+    "id": "b76206a9-24a7-44d9-ac00-ce37392d08a0",
+    "is_alturky_submit_active": false,
+    "is_cloaking_active": false,
+    "is_digital": false,
+    "is_ecombo_submit_active": false,
+    "is_engzny_submit_active": false,
+    "is_free_shipping": false,
+    "is_header_hidden": false,
+    "is_jamaica_submit_active": false,
+    "is_mosaweq_submit_active": false,
+    "is_quantity_hidden": false,
+    "is_taager_submit_active": false,
+    "name": "كوتشي 0",
+    "position": 0,
+    "price": 300,
+    "quantity": 0,
+    "show_landing_in_same_page": false,
+    "slug": "product-sneakers-0",
+    "store_id": "92a0268a-b96c-4225-8bcb-85d7f9527b41",
+    "thumb": "/demo/p4.png",
+    "track_stock": false
+  },
+  {
+    "created_at": "2024-12-20T15:45:22.414671Z",
+    "custom_currency": "",
+    "digital_link": {
+      "created_at": "0001-01-01T00:00:00Z",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "link": "",
+      "product": null,
+      "product_id": "00000000-0000-0000-0000-000000000000",
+      "sales_count": 0,
+      "updated_at": "0001-01-01T00:00:00Z",
+      "users": null
     },
-    {
-      "id": "dbbc82bd-0673-4e21-9233-c149b5e77365",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "price": 190,
-      "sale_price": 0,
-      "quantity": 0,
-      "taager_code": "",
-      "variation_props": [
-        {
-          "id": "a7da0bc8-268b-4bd5-a0a7-0c9442f7e1ee",
-          "variation": "color",
-          "variation_prop": "black",
-          "product_variant_id": "dbbc82bd-0673-4e21-9233-c149b5e77365"
-        },
-        {
-          "id": "5f799f74-0188-4ba2-bca6-f3765a7d65eb",
-          "variation": "size",
-          "variation_prop": "38",
-          "product_variant_id": "dbbc82bd-0673-4e21-9233-c149b5e77365"
-        }
-      ]
+    "disable_orders_for_no_stock": false,
+    "hidden": false,
+    "id": "b8c21133-d57a-4238-b22c-7993f051384b",
+    "is_alturky_submit_active": false,
+    "is_cloaking_active": false,
+    "is_digital": false,
+    "is_ecombo_submit_active": false,
+    "is_engzny_submit_active": false,
+    "is_free_shipping": false,
+    "is_header_hidden": false,
+    "is_jamaica_submit_active": false,
+    "is_mosaweq_submit_active": false,
+    "is_quantity_hidden": false,
+    "is_taager_submit_active": false,
+    "name": "bleame",
+    "position": 0,
+    "price": 5000,
+    "quantity": 0,
+    "show_landing_in_same_page": false,
+    "slug": "bleame",
+    "store_id": "92a0268a-b96c-4225-8bcb-85d7f9527b41",
+    "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1734709501816910414.webp",
+    "track_stock": false
+  },
+  {
+    "created_at": "2024-11-26T17:19:00.449242Z",
+    "custom_currency": "",
+    "digital_link": {
+      "created_at": "0001-01-01T00:00:00Z",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "link": "",
+      "product": null,
+      "product_id": "00000000-0000-0000-0000-000000000000",
+      "sales_count": 0,
+      "updated_at": "0001-01-01T00:00:00Z",
+      "users": null
     },
-    {
-      "id": "ca3a00ba-33f5-4324-8400-f4689948e51a",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "price": 190,
-      "sale_price": 0,
-      "quantity": 0,
-      "taager_code": "",
-      "variation_props": [
-        {
-          "id": "a25142ff-7ee2-4ea7-8fc7-ee8d291e4c19",
-          "variation": "color",
-          "variation_prop": "black",
-          "product_variant_id": "ca3a00ba-33f5-4324-8400-f4689948e51a"
-        },
-        {
-          "id": "816ae73b-423a-4db2-9f13-12cacda61531",
-          "variation": "size",
-          "variation_prop": "40",
-          "product_variant_id": "ca3a00ba-33f5-4324-8400-f4689948e51a"
-        }
-      ]
+    "disable_orders_for_no_stock": false,
+    "hidden": false,
+    "id": "d4232fe7-6a2e-44c3-950a-0cd851433939",
+    "is_alturky_submit_active": false,
+    "is_cloaking_active": false,
+    "is_digital": false,
+    "is_ecombo_submit_active": false,
+    "is_engzny_submit_active": false,
+    "is_free_shipping": false,
+    "is_header_hidden": false,
+    "is_jamaica_submit_active": false,
+    "is_mosaweq_submit_active": false,
+    "is_quantity_hidden": false,
+    "is_taager_submit_active": false,
+    "name": "blover-finished",
+    "position": 0,
+    "price": 5000,
+    "quantity": 0,
+    "show_landing_in_same_page": false,
+    "slug": "blover-finished",
+    "store_id": "92a0268a-b96c-4225-8bcb-85d7f9527b41",
+    "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1732641531681942036.png",
+    "track_stock": false
+  },
+  {
+    "created_at": "2025-02-05T20:14:36.601514Z",
+    "custom_currency": "",
+    "digital_link": {
+      "created_at": "0001-01-01T00:00:00Z",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "link": "",
+      "product": null,
+      "product_id": "00000000-0000-0000-0000-000000000000",
+      "sales_count": 0,
+      "updated_at": "0001-01-01T00:00:00Z",
+      "users": null
     },
-    {
-      "id": "98928d6f-ca48-4c82-ac80-4f0653acdf82",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "price": 190,
-      "sale_price": 0,
-      "quantity": 0,
-      "taager_code": "",
-      "variation_props": [
-        {
-          "id": "250c5ff7-180a-4aaa-96a2-a99510b1c84d",
-          "variation": "color",
-          "variation_prop": "black",
-          "product_variant_id": "98928d6f-ca48-4c82-ac80-4f0653acdf82"
-        },
-        {
-          "id": "ae65c475-eb10-4ffd-a879-30d591202ff5",
-          "variation": "size",
-          "variation_prop": "42",
-          "product_variant_id": "98928d6f-ca48-4c82-ac80-4f0653acdf82"
-        }
-      ]
+    "disable_orders_for_no_stock": false,
+    "hidden": false,
+    "id": "dace69d0-4ef0-451a-9970-2b3c32b3e945",
+    "is_alturky_submit_active": false,
+    "is_cloaking_active": false,
+    "is_digital": false,
+    "is_ecombo_submit_active": false,
+    "is_engzny_submit_active": false,
+    "is_free_shipping": false,
+    "is_header_hidden": false,
+    "is_jamaica_submit_active": false,
+    "is_mosaweq_submit_active": false,
+    "is_quantity_hidden": false,
+    "is_taager_submit_active": false,
+    "name": "hover-bag",
+    "position": 0,
+    "price": 5000,
+    "quantity": 0,
+    "show_landing_in_same_page": false,
+    "slug": "hover-bag",
+    "store_id": "92a0268a-b96c-4225-8bcb-85d7f9527b41",
+    "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1738786913312971022.png",
+    "track_stock": false
+  },
+  {
+    "created_at": "2024-11-17T07:11:50.199324Z",
+    "custom_currency": "",
+    "digital_link": {
+      "created_at": "0001-01-01T00:00:00Z",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "link": "",
+      "product": null,
+      "product_id": "00000000-0000-0000-0000-000000000000",
+      "sales_count": 0,
+      "updated_at": "0001-01-01T00:00:00Z",
+      "users": null
     },
-    {
-      "id": "7966a4f0-dab4-43cc-9a1f-49601626e5d0",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "price": 190,
-      "sale_price": 0,
-      "quantity": 0,
-      "taager_code": "",
-      "variation_props": [
-        {
-          "id": "de5404ea-a65e-4ec5-84c0-4691f1de64d9",
-          "variation": "color",
-          "variation_prop": "biege",
-          "product_variant_id": "7966a4f0-dab4-43cc-9a1f-49601626e5d0"
-        },
-        {
-          "id": "2a692816-fe77-4eca-98a3-4a187525d3a2",
-          "variation": "size",
-          "variation_prop": "38",
-          "product_variant_id": "7966a4f0-dab4-43cc-9a1f-49601626e5d0"
-        }
-      ]
+    "disable_orders_for_no_stock": false,
+    "hidden": false,
+    "id": "eee83b1d-1d71-4cb4-9b76-0d8086fb0bf4",
+    "is_alturky_submit_active": false,
+    "is_cloaking_active": false,
+    "is_digital": false,
+    "is_ecombo_submit_active": false,
+    "is_engzny_submit_active": false,
+    "is_free_shipping": false,
+    "is_header_hidden": false,
+    "is_jamaica_submit_active": false,
+    "is_mosaweq_submit_active": false,
+    "is_quantity_hidden": false,
+    "is_taager_submit_active": false,
+    "name": "Ramadan-old",
+    "position": 0,
+    "price": 5000,
+    "quantity": 0,
+    "show_landing_in_same_page": false,
+    "slug": "Ramadan-old",
+    "store_id": "92a0268a-b96c-4225-8bcb-85d7f9527b41",
+    "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1731827887210369258.png",
+    "track_stock": false
+  },
+  {
+    "created_at": "2025-06-10T05:13:57.981817Z",
+    "custom_currency": "",
+    "digital_link": {
+      "created_at": "0001-01-01T00:00:00Z",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "link": "",
+      "product": null,
+      "product_id": "00000000-0000-0000-0000-000000000000",
+      "sales_count": 0,
+      "updated_at": "0001-01-01T00:00:00Z",
+      "users": null
     },
-    {
-      "id": "bcab79a1-0d5f-4ca3-9027-c9264f2d7b28",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "price": 190,
-      "sale_price": 0,
-      "quantity": 0,
-      "taager_code": "",
-      "variation_props": [
-        {
-          "id": "57a25357-1390-4bb8-9cea-23a37e816ca4",
-          "variation": "color",
-          "variation_prop": "biege",
-          "product_variant_id": "bcab79a1-0d5f-4ca3-9027-c9264f2d7b28"
-        },
-        {
-          "id": "beb9641f-8c7c-45dc-b36a-515504183552",
-          "variation": "size",
-          "variation_prop": "40",
-          "product_variant_id": "bcab79a1-0d5f-4ca3-9027-c9264f2d7b28"
-        }
-      ]
-    },
-    {
-      "id": "f218b0e9-0396-48f8-9005-e8c79044558d",
-      "product_id": "d032e864-17cf-4417-9e34-a1a35620d42d",
-      "price": 190,
-      "sale_price": 0,
-      "quantity": 0,
-      "taager_code": "",
-      "variation_props": [
-        {
-          "id": "920dbe92-cc66-4737-83d7-86209de9a814",
-          "variation": "color",
-          "variation_prop": "biege",
-          "product_variant_id": "f218b0e9-0396-48f8-9005-e8c79044558d"
-        },
-        {
-          "id": "715e1825-1be1-471d-a341-d6684b399bfa",
-          "variation": "size",
-          "variation_prop": "42",
-          "product_variant_id": "f218b0e9-0396-48f8-9005-e8c79044558d"
-        }
-      ]
-    }
-  ],
-  "categories": [
-    {
-      "id": "1db2d69e-cd09-40b8-b4a3-67a44631e906",
-      "updated_at": "2024-12-23T12:34:17.315315Z",
-      "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1734957254865120117.webp",
-      "created_at": "2024-12-23T11:57:54.440137Z",
-      "name": "Mules",
-      "store_id": "2b59864b-9079-4ea0-a978-ba4d2632a50b",
-      "children": null,
-      "slug": "Mules",
-      "show_in_header": true,
-      "products": null,
-      "position": 0
-    },
-    {
-      "id": "6135dac8-8dba-4d3d-bb9a-c2eedb1ac25e",
-      "updated_at": "2024-12-23T12:23:50.332844Z",
-      "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1734956627919625168.webp",
-      "created_at": "2024-12-23T12:23:50.332844Z",
-      "name": "women heels",
-      "store_id": "2b59864b-9079-4ea0-a978-ba4d2632a50b",
-      "children": null,
-      "slug": "heels",
-      "show_in_header": true,
-      "products": null,
-      "position": 0
-    },
-    {
-      "id": "b95524c2-3389-412a-9a6d-091422f6a3f4",
-      "updated_at": "2024-12-23T12:25:05.699638Z",
-      "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1734956703585172408.webp",
-      "created_at": "2024-12-23T12:25:05.699638Z",
-      "name": "Moc Toe Boots",
-      "store_id": "2b59864b-9079-4ea0-a978-ba4d2632a50b",
-      "children": null,
-      "slug": "Moc-Toe-Boots",
-      "show_in_header": true,
-      "products": null,
-      "position": 0
-    },
-    {
-      "id": "fec13ce7-166a-4d78-a18e-3a23f677c855",
-      "updated_at": "2025-01-02T13:15:54.082223Z",
-      "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1735823720177770018.webp",
-      "created_at": "2024-12-23T12:09:28.293271Z",
-      "name": "Mules",
-      "store_id": "2b59864b-9079-4ea0-a978-ba4d2632a50b",
-      "children": null,
-      "slug": "sneakers",
-      "show_in_header": true,
-      "products": null,
-      "position": 0
-    }
-  ],
-  "digital_link": {
-    "id": "00000000-0000-0000-0000-000000000000",
-    "created_at": "0001-01-01T00:00:00Z",
-    "updated_at": "0001-01-01T00:00:00Z",
-    "product_id": "00000000-0000-0000-0000-000000000000",
-    "link": "",
-    "sales_count": 0,
-    "users": null,
-    "product": null
+    "disable_orders_for_no_stock": false,
+    "hidden": false,
+    "id": "f63beea6-3b3c-41b8-926a-b86fac759371",
+    "is_alturky_submit_active": false,
+    "is_cloaking_active": false,
+    "is_digital": false,
+    "is_ecombo_submit_active": false,
+    "is_engzny_submit_active": false,
+    "is_free_shipping": false,
+    "is_header_hidden": false,
+    "is_jamaica_submit_active": false,
+    "is_mosaweq_submit_active": false,
+    "is_quantity_hidden": false,
+    "is_taager_submit_active": false,
+    "name": "HABIT",
+    "position": 0,
+    "price": 5000,
+    "quantity": 0,
+    "show_landing_in_same_page": false,
+    "slug": "HABIT",
+    "store_id": "92a0268a-b96c-4225-8bcb-85d7f9527b41",
+    "thumb": "https://easyorders.fra1.digitaloceanspaces.com/1749532424564837648.png",
+    "track_stock": false
   }
-}
+]

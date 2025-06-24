@@ -1,3 +1,4 @@
+//EmblaCarouselThumbsButton.tsx
 import Image from "next/image";
 
 type ThumbProps = {

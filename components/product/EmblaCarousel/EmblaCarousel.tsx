@@ -1,3 +1,5 @@
+//components\product\EmblaCarousel\EmblaCarousel.tsx
+"use client";
 import React, { useState, useEffect, useCallback } from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
@@ -52,7 +54,7 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
       <div className="embla flex flex-col">
         <div className="flex gap-4 lg:gap-5">
           <div
-            className="embla__viewport overflow-hidden rounded-lg flex"
+            className="embla__viewport overflow-hidden rounded-lg flex flex-col"
             ref={emblaMainRef}
           >
             <div className="embla__container flex">
@@ -66,6 +68,24 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
                   />
                 </div>
               ))}
+            </div>
+            <div className="embla-thumbs">
+              <div
+                className="embla-thumbs__viewport overflow-hidden"
+                ref={emblaThumbsRef}
+              >
+                <div className="embla-thumbs__container flex gap-2">
+                  {slides.map((src, index) => (
+                    <Thumb
+                      key={index}
+                      imgSrc={src}
+                      onClick={() => onThumbClick(index)}
+                      selected={index === selectedIndex}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
           <div className="flex flex-col justify-between">
@@ -151,25 +171,6 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
                   />
                 </svg>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="embla-thumbs">
-          <div
-            className="embla-thumbs__viewport overflow-hidden"
-            ref={emblaThumbsRef}
-          >
-            <div className="embla-thumbs__container flex gap-2">
-              {slides.map((src, index) => (
-                <Thumb
-                  key={index}
-                  imgSrc={src}
-                  onClick={() => onThumbClick(index)}
-                  selected={index === selectedIndex}
-                  index={index}
-                />
-              ))}
             </div>
           </div>
         </div>
