@@ -32,14 +32,22 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
     sale_price,
     quantity,
     buy_now_text,
-    variations,
+    variations = [],
     variants,
     categories,
   } = product;
 
-  // track selected props per variation
+  // 1️⃣ Pre-select the first prop of each variation
   const [selectedProps, setSelectedProps] = useState<Record<string, string>>(
-    {}
+    () => {
+      const defaults: Record<string, string> = {};
+      variations.forEach((v) => {
+        if (v.props.length > 0) {
+          defaults[v.name] = v.props[0].name;
+        }
+      });
+      return defaults;
+    }
   );
 
   // strip HTML tags
@@ -67,9 +75,9 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
 
   // when clicking "Add To Cart"
   const handleAddToCart = () => {
-    // ensure every variation has a selection (fallback to first prop)
+    // ensure every variation has a selection
     const finalProps: Record<string, string> = {};
-    variations?.forEach((v) => {
+    variations.forEach((v) => {
       finalProps[v.name] = selectedProps[v.name] || v.props[0]?.name || "";
     });
     addItem(product, finalProps, 1);
@@ -127,7 +135,7 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
           <div className="product-description">{descriptionText}</div>
         </div>
 
-        {variations?.map((variation: Variation) => (
+        {variations.map((variation: Variation) => (
           <div
             key={variation.id}
             className="main-variation flex flex-col gap-3"
@@ -152,7 +160,9 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
                     }
                     style={
                       variation.type === "color" && isSelected && prop.value
-                        ? { border: `2px solid ${prop.value}` }
+                        ? {
+                            border: `2px solid ${prop.value}`,
+                          }
                         : undefined
                     }
                   >
