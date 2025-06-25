@@ -1,6 +1,7 @@
 // app/products/[slug]/page.tsx
 import React from "react";
 import Head from "next/head";
+import { notFound } from "next/navigation";
 import { fetchProductBySlug } from "@/lib/fetchProductBySlug";
 import ProductShell from "./ProductShell";
 import FirstDiscount from "@/components/FirstDiscount/FirstDiscount";
@@ -14,21 +15,20 @@ import Footer from "@/components/Footer/Footer";
 export default async function ProductDetailPage({
   params,
 }: {
-  // Next now passes dynamic `params` as a Promise
+  // Next 15 expects params to be awaited
   params: Promise<{ slug: string }>;
 }) {
-  // ⚠️ must await before destructuring
+  // must await before using
   const { slug } = await params;
 
-  // 1. Fetch the product
   let product;
   try {
     product = await fetchProductBySlug(slug);
   } catch (err) {
-    throw new Error(`Failed to load product for slug "${slug}": ${err}`);
+    // any error (missing slug, network, etc.) becomes a 404
+    notFound();
   }
 
-  // 2. Normalize image URLs
   const BASE_URL = "https://app.easy-orders.net";
   const formattedProduct = {
     ...product,
