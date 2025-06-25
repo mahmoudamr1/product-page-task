@@ -116,9 +116,11 @@ const Header: React.FC = () => {
                       </div>
                     )}
                   </div>
-                  <div ref={cartRef} className="cart-container">
-                    {isCartOpen && <Cart toggleCart={toggleCart} />}
-                  </div>
+                  {isCartOpen && (
+                    <div ref={cartRef} className="cart-container">
+                      {isCartOpen && <Cart toggleCart={toggleCart} />}
+                    </div>
+                  )}
 
                   <div className="wish-heart-logo flex items-center justify-center ">
                     <svg
