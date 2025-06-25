@@ -44,7 +44,6 @@ async function fetchProducts(): Promise<Product[]> {
   const cacheKey = `products_${CATEGORY_ID}`;
   const cached = getFromCache(cacheKey);
   if (cached) {
-    console.log("Returning cached products");
     return cached;
   }
 
@@ -72,7 +71,6 @@ async function fetchProducts(): Promise<Product[]> {
     }
 
     const json = await res.json();
-    console.log("API response:", json);
 
     let products: Product[] = [];
     if (Array.isArray(json)) {
