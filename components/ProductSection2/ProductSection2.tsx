@@ -1,4 +1,5 @@
 // components/ProductSection2/ProductSection2.tsx
+// category of products 2
 "use client";
 
 import React from "react";
