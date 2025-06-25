@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers/Providers";
-import { Toaster } from "react-hot-toast"; // ← أضف هذا
+import { Toaster } from "react-hot-toast";
+import ScrollToTopButton from "@/components/ScrollToTopButton/ScrollToTopButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,7 +42,7 @@ export default function RootLayout({
         {/* Wrap your children in the client-only Providers component */}
         <Providers>
           {children}
-          {/* إضافة Toaster هنا */}
+          <ScrollToTopButton />
           <Toaster
             position="top-center"
             toastOptions={{
