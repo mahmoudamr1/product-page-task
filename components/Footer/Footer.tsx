@@ -2,6 +2,7 @@
 import React from "react";
 import "./Footer.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
@@ -12,14 +13,14 @@ const Footer: React.FC = () => {
             {/* Logo + Subscribe */}
             <div className="us-footer flex flex-col gap-3 lg:gap-4 order-1 items-start lg:max-w-72 w-full lg:w-auto">
               <div className="flex items-center justify-end space-x-4">
-                <a href="#">
+                <Link href="/">
                   <Image
                     src="/Logo.png"
-                    className=" w-auto main-logo"
+                    className="w-auto main-logo"
                     alt="Website Logo"
                     fill
                   />
-                </a>
+                </Link>
               </div>
               <div className="email-subscribe flex items-center justify-end">
                 <input

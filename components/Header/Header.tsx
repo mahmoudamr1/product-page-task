@@ -5,6 +5,7 @@ import "./Header.css";
 import Image from "next/image";
 import { useCartStore } from "@/lib/useCartStore";
 import Cart from "@/components/Cart/Cart";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -227,14 +228,14 @@ const Header: React.FC = () => {
                 </div>
                 <div className="flex gap-5 items-center justify-center">
                   <div className="flex items-center">
-                    <a href="#">
+                    <Link href="/">
                       <Image
                         src="/Logo.png"
-                        className=" w-auto main-logo px-2"
+                        className="w-auto main-logo"
                         alt="Website Logo"
                         fill
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
