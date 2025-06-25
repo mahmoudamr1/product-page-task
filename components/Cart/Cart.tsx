@@ -161,7 +161,7 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
               </div>
             </div>
 
-            <div className="sticky bottom-0 z-10 bg-white py-3 flex flex-col gap-4">
+            <div className="sticky bottom-0 z-10 bg-white py-3 flex flex-col gap-4 border-t-2 border-gray-400 border-dashed">
               <div className="flex items-center justify-between">
                 <p className="text-gray-600"> {totalItems} : Items</p>
                 <p className="font-bold">

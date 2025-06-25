@@ -157,7 +157,8 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
             {/* Prev/Next */}
             <div className="flex flex-col gap-3 lg:gap-4 items-center">
               <div
-                className="small-img-container p-2 cursor-pointer"
+                className={`small-img-container p-2 cursor-pointer ${selectedIndex === 0 ? "!bg-red-300" : ""
+                  }`}
                 onClick={scrollPrev}
               >
                 <svg
@@ -177,7 +178,8 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
                 </svg>
               </div>
               <div
-                className="small-img-container p-2 cursor-pointer"
+                className={`small-img-container p-2 cursor-pointer ${selectedIndex === slides.length - 1 ? "!bg-red-300" : ""
+                  }`}
                 onClick={scrollNext}
               >
                 <svg
