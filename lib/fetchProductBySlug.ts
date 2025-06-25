@@ -1,3 +1,5 @@
+// lib/fetchProductBySlug.ts
+
 import { Product } from "@/types/product";
 
 const ENDPOINT = "https://api.easy-orders.net/api/v1/external-apps/products";

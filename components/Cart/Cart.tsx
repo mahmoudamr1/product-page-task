@@ -107,7 +107,7 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
                         <div className="flex justify-between gap-3 items-center">
                           <div className="flex items-center border-gray-400 border-1">
                             <button
-                              className="self-stretch p-3"
+                              className="self-stretch p-3 cursor-pointer "
                               onClick={() =>
                                 addItem(item.product, item.selectedProps, -1)
                               }
@@ -129,7 +129,7 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
                             <span className="px-4">{item.quantity}</span>
                             <div className="self-stretch w-px bg-gray-400"></div>
                             <button
-                              className="self-stretch p-3"
+                              className="self-stretch p-3 cursor-pointer"
                               onClick={() =>
                                 addItem(item.product, item.selectedProps, 1)
                               }
@@ -169,7 +169,7 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
                 </p>
               </div>
               <button
-                className="w-full bg-red-500 text-white py-2 rounded"
+                className="w-full bg-red-500 text-white py-2 rounded cursor-pointer"
                 onClick={handleClearAll}
               >
                 إزالة الكل
