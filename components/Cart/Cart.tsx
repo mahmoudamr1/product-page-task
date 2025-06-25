@@ -165,7 +165,7 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
                 })}
               </div>
             </div>
-            <div className="flex flex-col gap-4 min-h-[160px] pt-3">
+            <div className="flex flex-col gap-4 min-h-[160px] pt-3 justify-end">
               <div className="flex items-center justify-between">
                 <p className="text-gray-600"> {totalItems} : Items</p>
                 <p className="font-bold">

@@ -58,7 +58,8 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
   const handleSelectProp = (variationName: string, propName: string) => {
     setSelectedProps((prev) => ({
       ...prev,
-      [variationName]: prev[variationName] === propName ? "" : propName,
+      // لو نفس الخيار: خليه كما هو، لو مختلف: غيّره
+      [variationName]: propName,
     }));
   };
 
