@@ -3,3 +3,8 @@
   height: 40px;
   cursor: pointer;
 }
+.close-icon path {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
