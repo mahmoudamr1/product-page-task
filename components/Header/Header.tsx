@@ -231,7 +231,7 @@ const Header: React.FC = () => {
                     <Link href="/">
                       <Image
                         src="/Logo.png"
-                        className="w-auto main-logo"
+                        className="w-auto main-logo px-3"
                         alt="Website Logo"
                         fill
                       />
