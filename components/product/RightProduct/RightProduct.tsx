@@ -1,4 +1,5 @@
 // components/product/RightProduct/RightProduct.tsx
+"use client";
 import React, { useState } from "react";
 import "./RightProduct.css";
 import {
@@ -8,6 +9,7 @@ import {
   ProductVariant,
 } from "@/types/product";
 import { useCartStore } from "@/lib/useCartStore";
+import toast from "react-hot-toast";
 
 export interface RightProductProps {
   product: Product;
@@ -75,12 +77,17 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
 
   // when clicking "Add To Cart"
   const handleAddToCart = () => {
-    // ensure every variation has a selection
     const finalProps: Record<string, string> = {};
     variations.forEach((v) => {
       finalProps[v.name] = selectedProps[v.name] || v.props[0]?.name || "";
     });
+
     addItem(product, finalProps, 1);
+
+    const firstWord = name.split(" ")[0].slice(0, 15);
+    toast.success(`"${firstWord}" added to cart  `, {
+      position: "top-center",
+    });
   };
 
   return (
@@ -125,16 +132,13 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
             </div>
           </div>
         </div>
-
         <div className="flex items-center justify-center w-full py-2">
           <div className="dashed-line"></div>
         </div>
-
         <div className="flex flex-col gap-2 text-start">
           <div className="desc-txt">الوصف:</div>
           <div className="product-description">{descriptionText}</div>
         </div>
-
         {variations.map((variation: Variation) => (
           <div
             key={variation.id}
@@ -197,7 +201,6 @@ const RightProduct: React.FC<RightProductProps> = ({ product }) => {
             </div>
           </div>
         ))}
-
         <div className="main-variation gap-3 grid grid-cols-1 lg:grid-cols-2">
           <button
             onClick={handleAddToCart}

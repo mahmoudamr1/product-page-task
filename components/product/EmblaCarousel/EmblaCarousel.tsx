@@ -1,10 +1,11 @@
-//components\product\EmblaCarousel\EmblaCarousel.tsx
+// components/product/EmblaCarousel/EmblaCarousel.tsx
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { Thumb } from "./EmblaCarouselThumbsButton";
 import Image from "next/image";
+import { toast } from "react-hot-toast"; // ← أضف هذا
 import "./EmblaCarousel.css";
 
 type PropType = {
@@ -49,8 +50,21 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
     emblaMainApi.on("select", onSelect).on("reInit", onSelect);
   }, [emblaMainApi, onSelect]);
 
+  const handleCopyLink = () => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => {
+          toast.success("تم النسخ!");
+        })
+        .catch(() => {
+          toast.error("فشل في النسخ");
+        });
+    }
+  };
+
   return (
-    <div className="flex gap-3 lg:gap-5 col-span-1 max-w-full">
+    <div className="flex gap-3 lg:gap-5 col-span-1 max-w-full relative">
       <div className="embla flex flex-col">
         <div className="flex gap-4 lg:gap-5">
           <div
@@ -69,6 +83,7 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
                 </div>
               ))}
             </div>
+
             <div className="embla-thumbs">
               <div
                 className="embla-thumbs__viewport overflow-hidden"
@@ -88,9 +103,15 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
               </div>
             </div>
           </div>
+
           <div className="flex flex-col justify-between">
             <div className="flex flex-col gap-3 lg:gap-4 items-center">
-              <div className="small-img-container p-2">
+              {/* Share button */}
+              <div
+                className="small-img-container p-2 cursor-pointer"
+                onClick={handleCopyLink}
+                title="Copy page link"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -113,6 +134,8 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
                   />
                 </svg>
               </div>
+
+              {/* Favorite icon (unchanged) */}
               <div className="small-img-container p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -130,6 +153,8 @@ const EmblaCarousel: React.FC<PropType> = ({ slides, options }) => {
                 </svg>
               </div>
             </div>
+
+            {/* Prev/Next */}
             <div className="flex flex-col gap-3 lg:gap-4 items-center">
               <div
                 className="small-img-container p-2 cursor-pointer"
