@@ -40,7 +40,7 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
         {items.length === 0 ? (
           <p className="text-center text-gray-500">سلة التسوق فارغة</p>
         ) : (
-          <div className="flex flex-col justify-between h-full pb-3 max-h-full">
+          <div className="flex flex-col justify-between h-full pb-3 max-h-full relative">
             <div className="flex flex-col overflow-hidden max-h-full">
               <div className="flex flex-col overflow-y-auto">
                 {items.map((item: CartItem, idx: number) => {
@@ -48,12 +48,9 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
                     item.product.sale_price ?? item.product.price;
                   const itemTotal = unitPrice * item.quantity;
                   return (
-                    <>
+                    <React.Fragment key={idx}>
                       <div className="flex flex-col gap-3">
-                        <div
-                          key={idx}
-                          className="flex items-center gap-4 justify-between"
-                        >
+                        <div className="flex items-center gap-4 justify-between">
                           {/* الصورة */}
                           <div className="flex gap-3">
                             <img
@@ -73,15 +70,13 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
                                   <div className="text-sm text-gray-600 flex flex-col gap-1">
                                     {Object.entries(item.selectedProps).map(
                                       ([variation, value]) => (
-                                        <span key={variation} className="">
+                                        <span key={variation}>
                                           {variation}: {value}
                                         </span>
                                       )
                                     )}
                                   </div>
                                 )}
-
-                                {/* وحدة التحكم في الكمية */}
                               </div>
                             </div>
                           </div>
@@ -131,7 +126,7 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
                               </svg>
                             </button>
                             <div className="self-stretch w-px bg-gray-400"></div>
-                            <span className=" px-4">{item.quantity}</span>
+                            <span className="px-4">{item.quantity}</span>
                             <div className="self-stretch w-px bg-gray-400"></div>
                             <button
                               className="self-stretch p-3"
@@ -160,21 +155,21 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
                         </div>
                       </div>
                       <DashedLine className="!py-2 last:hidden" />
-                    </>
+                    </React.Fragment>
                   );
                 })}
               </div>
             </div>
-            <div className="flex flex-col gap-4 min-h-[160px] pt-3 justify-end">
+
+            <div className="sticky bottom-0 z-10 bg-white py-3 flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <p className="text-gray-600"> {totalItems} : Items</p>
                 <p className="font-bold">
                   Cart Total: ${subtotal.toLocaleString()}
                 </p>
               </div>
-              {/* زر إزالة الكل */}
               <button
-                className=" w-full bg-red-500 text-white py-2 rounded"
+                className="w-full bg-red-500 text-white py-2 rounded"
                 onClick={handleClearAll}
               >
                 إزالة الكل
