@@ -14,9 +14,11 @@ import Footer from "@/components/Footer/Footer";
 export default async function ProductDetailPage({
   params,
 }: {
-  params: { slug: string };
+  // Next now passes dynamic `params` as a Promise
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  // ⚠️ must await before destructuring
+  const { slug } = await params;
 
   // 1. Fetch the product
   let product;
@@ -26,7 +28,7 @@ export default async function ProductDetailPage({
     throw new Error(`Failed to load product for slug "${slug}": ${err}`);
   }
 
-  // 2. Build image URLs
+  // 2. Normalize image URLs
   const BASE_URL = "https://app.easy-orders.net";
   const formattedProduct = {
     ...product,
@@ -36,7 +38,7 @@ export default async function ProductDetailPage({
     images: product.images.map((img) =>
       img.startsWith("http") ? img : `${BASE_URL}${img}`
     ),
-    description: product.description || "", // Ensure description is a string
+    description: product.description || "",
   };
 
   return (
