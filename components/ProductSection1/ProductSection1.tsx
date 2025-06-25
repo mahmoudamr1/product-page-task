@@ -10,25 +10,20 @@ const API_KEY =
   process.env.NEXT_PUBLIC_API_KEY || "78f869d8-65d7-4a96-a3ec-f5d3c6141ff3";
 const ENDPOINT = "https://api.easy-orders.net/api/v1/external-apps/products";
 const CATEGORY_ID = "29aec3e7-8732-48e8-ade6-16b8188255d1";
-const CACHE_TTL = 5 * 60 * 1000; // 5 دقائق
-const DEFAULT_RETRY_DELAY = 5000; // 5 ثوانٍ
+const CACHE_TTL = 5 * 60 * 1000;
+const DEFAULT_RETRY_DELAY = 5000;
 
-// كاش ذاكرة مؤقت في هذه الجلسة
 const productsCache = new Map<string, { data: Product[]; ts: number }>();
 
 function getFromCache(key: string): Product[] | null {
   const entry = productsCache.get(key);
-  if (entry && Date.now() - entry.ts < CACHE_TTL) {
-    return entry.data;
-  }
-  return null;
+  return entry && Date.now() - entry.ts < CACHE_TTL ? entry.data : null;
 }
 
 function setInCache(key: string, data: Product[]) {
   productsCache.set(key, { data, ts: Date.now() });
 }
 
-// fetch helper يعيد محاولة واحدة على 429
 async function fetchWithRetry(
   url: string,
   options: RequestInit,
@@ -38,17 +33,13 @@ async function fetchWithRetry(
   if (res.status === 429 && retries > 0) {
     const ra = res.headers.get("Retry-After");
     const delay = ra ? parseInt(ra, 10) * 1000 : DEFAULT_RETRY_DELAY;
-    console.warn(`Rate limit hit (429). Retrying after ${delay}ms...`);
+    console.warn(`Rate limited, retrying after ${delay}ms…`);
     await new Promise((r) => setTimeout(r, delay));
     return fetchWithRetry(url, options, retries - 1);
-  }
-  if (!res.ok) {
-    throw new Error(`HTTP ${res.status} ${res.statusText}`);
   }
   return res;
 }
 
-// الدالة الرئيسية لجلب المنتجات مع الكاش
 async function fetchProducts(): Promise<Product[]> {
   const cacheKey = `products_${CATEGORY_ID}`;
   const cached = getFromCache(cacheKey);
@@ -65,47 +56,65 @@ async function fetchProducts(): Promise<Product[]> {
     },
   };
 
-  const res = await fetchWithRetry(url, options, 1);
-  const json = await res.json();
-  console.log("API response:", json);
+  try {
+    const res = await fetchWithRetry(url, options, 1);
+    if (res.status === 400) {
+      // log the real body so you know what’s wrong
+      const text = await res.text();
+      console.error("400 Bad Request – details:", text);
+      return [];
+    }
 
-  let products: Product[] = [];
-  if (Array.isArray(json)) {
-    products = json;
-  } else if (json.data && Array.isArray(json.data)) {
-    products = json.data;
-  } else if (json.products && Array.isArray(json.products)) {
-    products = json.products;
+    if (!res.ok) {
+      const text = await res.text();
+      console.error(`${res.status} error:`, text);
+      throw new Error(`HTTP ${res.status}`);
+    }
+
+    const json = await res.json();
+    console.log("API response:", json);
+
+    let products: Product[] = [];
+    if (Array.isArray(json)) {
+      products = json;
+    } else if (json.data && Array.isArray(json.data)) {
+      products = json.data;
+    } else if (json.products && Array.isArray(json.products)) {
+      products = json.products;
+    }
+
+    setInCache(cacheKey, products);
+    return products;
+  } catch (err) {
+    console.error("FetchProducts failed:", err);
+    // for safety, return empty list on any client-side error
+    return [];
   }
-
-  setInCache(cacheKey, products);
-  return products;
 }
 
 export function ProductSection1() {
   const {
-    data: products = [], // نضمن أنها مصفوفة دومًا
+    data: products = [],
     isLoading,
     isError,
     error,
   } = useQuery<Product[], Error>({
     queryKey: ["products", CATEGORY_ID],
     queryFn: fetchProducts,
-    staleTime: CACHE_TTL, // طازجة لخمسة دقائق
-    refetchOnWindowFocus: false, // بدون إعادة جلب على التركيز
-    refetchOnMount: false, // بدون إعادة جلب على إعادة التركيب
-    refetchOnReconnect: false, // بدون إعادة جلب على إعادة الاتصال
-    retry: false, // لا محاولات تلقائية أخرى
+    staleTime: CACHE_TTL,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    retry: false,
   });
 
   if (isLoading) {
     return <div className="flex justify-center py-10">Loading products…</div>;
   }
-
+  // since we catch 400 above, isError now only fires on network or code errors
   if (isError) {
     return <div className="text-red-500">Error: {error.message}</div>;
   }
-
   if (products.length === 0) {
     return (
       <div className="text-gray-500 text-center py-10">
