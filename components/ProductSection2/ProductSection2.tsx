@@ -32,12 +32,12 @@ function setInCache(key: string, data: Product[]) {
 async function fetchWithRetry(
   url: string,
   options: RequestInit,
-  retries = 1
+  retries = 5
 ): Promise<Response> {
   const res = await fetch(url, options);
   if (res.status === 429 && retries > 0) {
     const ra = res.headers.get("Retry-After");
-    const delay = ra ? parseInt(ra, 10) * 1000 : DEFAULT_RETRY_DELAY;
+    const delay = ra ? parseInt(ra, 10) * 1000 : DEFAULT_RETRY_DELAY * (6 - retries); // Exponential backoff
     console.warn(`Rate limit hit (429). Retrying after ${delay}ms...`);
     await new Promise((r) => setTimeout(r, delay));
     return fetchWithRetry(url, options, retries - 1);
@@ -101,14 +101,16 @@ export function ProductSection2() {
     isLoading,
     isError,
     error,
-  } = useQuery<Product[], Error>({
+  } = useQuery<Product[], Error, Product[], [string, string]>({
     queryKey: ["products", CATEGORY_ID],
     queryFn: fetchProducts,
-    staleTime: CACHE_TTL,
+    staleTime: CACHE_TTL * 2, // Increased to reduce refetch frequency
+    gcTime: CACHE_TTL * 3, // Added gcTime to keep data longer
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     refetchOnReconnect: false,
-    retry: false,
+    retry: 3, // Added retries for better rate limit handling
+    retryDelay: (attempt) => Math.min(attempt * DEFAULT_RETRY_DELAY, 30000), // Dynamic retry delay up to 30s
   });
 
   if (isLoading) {
@@ -139,7 +141,11 @@ export function ProductSection2() {
   }
 
   if (isError) {
-    return <div className="text-red-500">Error: {error.message}</div>;
+    return (
+      <div className="text-red-500">
+        Error: {error.message === "HTTP 429" ? "Rate limit exceeded, please try again later." : error.message}
+      </div>
+    );
   }
 
   if (products.length === 0) {
@@ -158,7 +164,7 @@ export function ProductSection2() {
       <div className="container flex flex-col gap-6 xl:gap-10 max-w-full md:max-w-screen-xl mx-auto">
         <ProductsSectionTitle title="Popular this week" actionText="View All" />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 gap-y-8">
-          {products.map((p) => (
+          {products.map((p: Product) => (
             <OneProduct key={p.id} product={p} />
           ))}
         </div>

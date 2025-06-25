@@ -27,12 +27,12 @@ function setInCache(key: string, data: Product[]) {
 async function fetchWithRetry(
   url: string,
   options: RequestInit,
-  retries = 1
+  retries = 5
 ): Promise<Response> {
   const res = await fetch(url, options);
   if (res.status === 429 && retries > 0) {
     const ra = res.headers.get("Retry-After");
-    const delay = ra ? parseInt(ra, 10) * 1000 : DEFAULT_RETRY_DELAY;
+    const delay = ra ? parseInt(ra, 10) * 1000 : DEFAULT_RETRY_DELAY * (6 - retries); // Exponential backoff
     console.warn(`Rate limited, retrying after ${delay}ms…`);
     await new Promise((r) => setTimeout(r, delay));
     return fetchWithRetry(url, options, retries - 1);
@@ -45,6 +45,11 @@ async function fetchProducts(): Promise<Product[]> {
   const cached = getFromCache(cacheKey);
   if (cached) {
     return cached;
+  }
+
+  if (!API_KEY) {
+    console.error("API Key is missing or invalid");
+    return [];
   }
 
   const url = `${ENDPOINT}?category_id=${CATEGORY_ID}`;
@@ -96,22 +101,52 @@ export function ProductSection1() {
     isLoading,
     isError,
     error,
-  } = useQuery<Product[], Error>({
+  } = useQuery<Product[], Error, Product[], [string, string]>({
     queryKey: ["products", CATEGORY_ID],
     queryFn: fetchProducts,
-    staleTime: CACHE_TTL,
+    staleTime: CACHE_TTL * 2, // Increased to reduce refetch frequency
+    gcTime: CACHE_TTL * 3, // Replaced cacheTime with gcTime
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     refetchOnReconnect: false,
-    retry: false,
+    retry: 3, // Increased retries for better rate limit handling
+    retryDelay: (attempt) => Math.min(attempt * DEFAULT_RETRY_DELAY, 30000), // Increased max delay to 30s
   });
 
   if (isLoading) {
-    return <div className="flex justify-center py-10">Loading products…</div>;
+    return (
+      <div className="flex justify-center py-10">
+        <svg
+          className="w-8 h-8 animate-spin text-gray-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4l-4 4v-4a4 4 0 00-4 4z"
+          />
+        </svg>
+        <span className="ml-2">Loading products, please wait…</span>
+      </div>
+    );
   }
   // since we catch 400 above, isError now only fires on network or code errors
   if (isError) {
-    return <div className="text-red-500">Error: {error.message}</div>;
+    return (
+      <div className="text-red-500">
+        Error: {error.message === "HTTP 429" ? "Rate limit exceeded, please try again later." : error.message}
+      </div>
+    );
   }
   if (products.length === 0) {
     return (
@@ -129,7 +164,7 @@ export function ProductSection1() {
       <div className="container flex flex-col gap-6 xl:gap-10 max-w-full md:max-w-screen-xl mx-auto">
         <ProductsSectionTitle title="Related Product" actionText="View All" />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 gap-y-8">
-          {products.map((p) => (
+          {products.map((p: Product) => (
             <OneProduct key={p.id} product={p} />
           ))}
         </div>
@@ -139,3 +174,9 @@ export function ProductSection1() {
 }
 
 export default ProductSection1;
+
+
+
+
+
+

@@ -26,36 +26,41 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* Wrap your children in the client-only Providers component */}
-        <Providers>
-          {children}
-          <ScrollToTopButton />
-          <Toaster
-            position="top-center"
-            toastOptions={{
-              duration: 2000,
-              style: {
-                fontSize: "14px",
-                padding: "8px 16px",
-                fontFamily: "geist Mono",
-              },
-            }}
+  try {
+    return (
+      <html lang="en">
+        <head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
           />
-        </Providers>
-      </body>
-    </html>
-  );
+        </head>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          {/* Wrap your children in the client-only Providers component */}
+          <Providers>
+            {children}
+            <ScrollToTopButton />
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                duration: 2000,
+                style: {
+                  fontSize: "14px",
+                  padding: "8px 16px",
+                  fontFamily: "geist Mono",
+                },
+              }}
+            />
+          </Providers>
+        </body>
+      </html>
+    );
+  } catch (error) {
+    console.error("Failed to render RootLayout:", error);
+    return <div>Error rendering RootLayout</div>; // Fallback UI
+  }
 }

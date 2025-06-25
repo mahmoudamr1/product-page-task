@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import SoldRating from "../SoldRating/SoldRating";
 import "./OneProduct.css";
 
@@ -54,21 +54,33 @@ async function fetchProductDetail(id: string): Promise<ProductDetail> {
 const OneProduct: React.FC<OneProductProps> = ({ product }) => {
   if (!product) return null;
 
+  const queryClient = useQueryClient();
   const { data, isLoading, isError, error } = useQuery<ProductDetail, Error>({
-    queryKey: ["product", product.id],
+    queryKey: ["productDetail", product.id], // Unique and consistent key
     queryFn: () => fetchProductDetail(product.id),
-    retry: false, // disable retries to avoid repeated 429s
+    retry: 3, // Enable retries with 3 attempts
+    retryDelay: (attempt) => Math.min(attempt * 5000, 30000), // Exponential backoff up to 30s
+    staleTime: 30 * 60 * 1000, // 30 minutes stale time to rely on previous data
+    gcTime: 60 * 60 * 1000, // 1 hour garbage collection time
+    enabled: !!product && !queryClient.getQueryData<ProductDetail>(["productDetail", product.id]), // Fetch only if no data exists
   });
 
   if (isLoading) return <div>Loading...</div>;
   if (isError)
-    return <div className="text-red-500">Error: {error.message}</div>;
+    return (
+      <div className="text-red-500">
+        Error: {error.message === "Rate limit exceeded, please try again later."
+          ? `${error.message} (Retrying may help)`
+          : error.message}
+      </div>
+    );
   if (!data) return null;
 
   const thumbPath = data.thumb || "";
   const thumbUrl = thumbPath.startsWith("http")
     ? thumbPath
     : `${BASE_URL}${thumbPath}`;
+  if (!thumbUrl) return <div>Image not available</div>;
 
   const productLink = `/products/${data.slug}`;
 
