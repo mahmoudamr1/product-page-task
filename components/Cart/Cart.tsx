@@ -40,7 +40,7 @@ const Cart: React.FC<CartProps> = ({ toggleCart }) => {
         {items.length === 0 ? (
           <p className="text-center text-gray-500">سلة التسوق فارغة</p>
         ) : (
-          <div className="flex flex-col justify-between  relative overflow-y-auto">
+          <div className="flex flex-col justify-between  relative overflow-y-auto h-full">
             <div className="flex flex-col overflow-hidden ">
               <div className="flex flex-col overflow-y-auto">
                 {items.map((item: CartItem, idx: number) => {
