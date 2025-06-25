@@ -11,13 +11,12 @@ import ReviewSection from "@/components/ReviewSection/ReviewSection";
 import ProductSection2 from "@/components/ProductSection2/ProductSection2";
 import Footer from "@/components/Footer/Footer";
 
-interface Props {
+export default async function ProductDetailPage({
+  params,
+}: {
   params: { slug: string };
-}
-
-export default async function ProductDetailPage({ params }: Props) {
-  // ⚠️ Await params before destructuring!
-  const { slug } = await params;
+}) {
+  const { slug } = params;
 
   // 1. Fetch the product
   let product;
