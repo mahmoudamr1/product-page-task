@@ -8,7 +8,7 @@ import "./OneProduct.css";
 
 const BASE_URL = "https://app.easy-orders.net";
 const API_KEY =
-  process.env.NEXT_PUBLIC_API_KEY || "78f869d8-65d7-4a96-a3ec-f5d3c6141ff3";
+  process.env.NEXT_PUBLIC_API_KEY;
 const ENDPOINT = "https://api.easy-orders.net/api/v1/external-apps/products";
 
 export interface ProductSummary {

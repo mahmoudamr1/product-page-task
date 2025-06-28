@@ -7,7 +7,7 @@ import ProductsSectionTitle from "@/Ui/ProductsSectionTitle/ProductsSectionTitle
 import OneProduct, { Product } from "@/Ui/OneProduct/OneProduct";
 
 const API_KEY =
-  process.env.NEXT_PUBLIC_API_KEY || "78f869d8-65d7-4a96-a3ec-f5d3c6141ff3";
+  process.env.NEXT_PUBLIC_API_KEY!;
 const ENDPOINT = "https://api.easy-orders.net/api/v1/external-apps/products";
 const CATEGORY_ID = "29aec3e7-8732-48e8-ade6-16b8188255d1";
 const CACHE_TTL = 5 * 60 * 1000;
