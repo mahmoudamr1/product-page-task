@@ -3,7 +3,7 @@
 import { Product } from "@/types/product";
 
 const ENDPOINT = "https://api.easy-orders.net/api/v1/external-apps/products";
-const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY!;
 const DEFAULT_RETRY_DELAY = 5000; // 5 seconds default retry delay
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes cache TTL
 
